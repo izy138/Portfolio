@@ -1,4 +1,3 @@
-import particlesimGif from './assets/particlesim.gif';
 import particlesimStill from './assets/particlesim-still.png';
 
 const projects = [
@@ -11,9 +10,7 @@ const projects = [
     tech: ["WebGPU", "JavaScript", "WGSL", "SQLite"],
     github: "https://github.com/izy138/ParticleSim",
     demo: "https://izy138.github.io/ParticleSim",
-    image: particlesimGif,
-    stillImage: particlesimStill,
-    hasHoverEffect: true
+    image: particlesimStill,
   },
   {
     slug: "intelligent-notes",//"react-dashboard", 
