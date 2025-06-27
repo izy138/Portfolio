@@ -1,6 +1,7 @@
 import particlesim from './assets/particlesim.png';
 import sponsorstories from './assets/sponsorstories.png';
 import intelligentnotes from './assets/intelligentnotes.png';
+import kanban from './assets/kanban.png';
 
 
 const projects = [
@@ -21,7 +22,7 @@ const projects = [
     description: "Note taking app using AI to summarize and organize notes.",
     longDescription: `This is a detailed writeup about the React Analytics Dashboard project.`,
     categories: ["Development", "Design", "React"],
-    tech: ["Java", "Maven", "JavaFX","AI"],
+    tech: ["Java", "Maven", "JavaFX", "AI"],
     github: "https://github.com/izy138/Intelligent-Notes/",
     demo: "https://youtu.be/hVVNb0Lfw4I?si=qC5AGLoeRv5qOs_5&t=652",
     image: intelligentnotes
@@ -34,8 +35,8 @@ const projects = [
     categories: ["Development", "Design", "React"],
     tech: ["React", "TypeScript", "TailwindCSS", "Node.js", "Express", "Supabase"],
     github: "https://github.com/yourusername/react-dashboard",
-    demo: "https://your-dashboard.vercel.app",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop"
+    demo: "https://izy138-kanban.vercel.app",
+    image: kanban
   },
   {
     slug: "chat-app",//"react-dashboard", 
