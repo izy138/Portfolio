@@ -304,21 +304,21 @@ const Portfolio = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="mailto:hello@johndeveloper.com"
+              href="mailto:isabellapc97@gmail.com"
               className="flex items-center justify-center gap-2 px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-200 shadow-md"
             >
               <Mail size={16} />
               Email Me
             </a>
             <a
-              href="https://linkedin.com/in/johndeveloper"
+              href="https://linkedin.com/in/izy138"
               className="flex items-center justify-center gap-2 px-8 py-3 border border-gray-300 text-gray-900 text-sm font-medium hover:bg-gray-50 transition-colors duration-200"
             >
               <Linkedin size={16} />
               LinkedIn
             </a>
             <a
-              href="https://github.com/johndeveloper"
+              href="https://github.com/izy138"
               className="flex items-center justify-center gap-2 px-8 py-3 border border-gray-300 text-gray-900 text-sm font-medium hover:bg-gray-50 transition-colors duration-200"
             >
               <Github size={16} />
