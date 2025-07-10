@@ -2,18 +2,18 @@ const blogData = {
   "webgpu-particles": [
     {
       id: 1,
-      date: "2024-05-15",
+      date: "2024-05-9",
       title: "Getting Started with WebGPU",
-      content: "I saw a twitter post showing a particle life simulation and instantly wanted to try to make my own. The simulation is inspired by @lisyarus simulation found here: https://lisyarus.github.io/webgpu/particle-life.html. The simulation is written using the WebGPU API, and I have had so much fun making it. I started off with a simple verion using vanilla JavaScript, HTML5 Canvas, and CSS. However I realized going about 800+ particle count significantly impacted FPS. This is because it was running at O(n²) time, every particle had to check every other particle, for each frame. A small version of it is what is used on the homepage using only 600 particles.",
+      content: "I saw a twitter post showing a particle life simulation and instantly wanted to try to make my own. The simulation is inspired by @lisyarus simulation found here: https://lisyarus.github.io/webgpu/particle-life.html. I started off with a simple verion using vanilla JavaScript, HTML5 Canvas, and CSS. However I realized using more than 800 particles significantly impacted FPS. This is because it was running at O(n²) time, every particle had to check every other particle, for each frame. A small version of it is what is used on the homepage using only 600 particles.",
       tags: []
     },
-    // {
-    //   id: 2,
-    //   date: "2024-05-20",
-    //   title: "Particle Physics Implementation",
-    //   content: "Implemented the core particle physics system using WGSL compute shaders. The parallel processing capabilities are amazing - we're now handling 10,000+ particles at 60fps!",
-    //   tags: ["WGSL", "Compute Shaders", "Physics"]
-    // },
+    {
+      id: 2,
+      date: "2024-05-20",
+      title: "Particle Physics Implementation",
+      content: "Using the WebGPU API, it significantly improved the performance of the particle sim. I implemented the core particle physics system using WGSL compute and render shaders. The parallel processing capabilities are amazing, now handling up to 12,000 particles at 60fps. Next I added particle sizing and opacity sliders, and pause and reset buttons.",
+      tags: ["WGSL", "Compute Shaders", "Physics"]
+    },
     // {
     //   id: 3,
     //   date: "2024-01-25",
