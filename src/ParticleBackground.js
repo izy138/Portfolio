@@ -11,14 +11,14 @@ const ParticleBackground = ({ onMouseStateChange }) => {
     
     // Configuration
     const config = {
-      particleCount: 600, // Reduced from 12000 for performance
+      particleCount: 450, // Reduced from 12000 for performance
       colorCount: 6, // Increased to 6 for the new cyan particle
       repelForce: 3, // Reduced from 9 to prevent ejection
       forceFactor: 8,
       frictionFactor: 0.7,
       mouseForce: 60,
       mouseRadius: 200,
-      particleSize: 4
+      particleSize: 6
     };
     
     // Mouse position
@@ -163,8 +163,30 @@ const ParticleBackground = ({ onMouseStateChange }) => {
         this.vy = 0;
         this.colorIndex = Math.floor(Math.random() * config.colorCount);
         this.color = colorPalette[this.colorIndex];
+        this.targetColor = colorPalette[(this.colorIndex + 1) % config.colorCount];
+        this.colorTime = Math.random() * Math.PI * 2; // Random start time for variety
         this.size = config.particleSize * (0.8 + Math.random() * 0.4);
-        this.opacity = 0.8 + Math.random() * 0.2;
+        this.opacity = 0.9 + Math.random() * 0.2;
+      }
+      
+      // Color interpolation helper
+      interpolateColor(color1, color2, t) {
+        // Convert hex to RGB
+        const r1 = parseInt(color1.slice(1, 3), 16);
+        const g1 = parseInt(color1.slice(3, 5), 16);
+        const b1 = parseInt(color1.slice(5, 7), 16);
+        
+        const r2 = parseInt(color2.slice(1, 3), 16);
+        const g2 = parseInt(color2.slice(3, 5), 16);
+        const b2 = parseInt(color2.slice(5, 7), 16);
+        
+        // Interpolate
+        const r = Math.round(r1 + (r2 - r1) * t);
+        const g = Math.round(g1 + (g2 - g1) * t);
+        const b = Math.round(b1 + (b2 - b1) * t);
+        
+        // Convert back to hex
+        return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
       }
       
       update() {
@@ -173,6 +195,11 @@ const ParticleBackground = ({ onMouseStateChange }) => {
         
         this.x += this.vx;
         this.y += this.vy;
+        
+        // Update color cycling
+        this.colorTime += 0.01;
+        const t = (Math.sin(this.colorTime) + 1) / 2; // Smooth oscillation between 0 and 1
+        this.currentColor = this.interpolateColor(this.color, this.targetColor, t);
         
         if (this.x < 0) this.x = canvas.width;
         if (this.x > canvas.width) this.x = 0;
@@ -236,24 +263,10 @@ const ParticleBackground = ({ onMouseStateChange }) => {
       }
       
       draw() {
-        // Draw the bright white glow behind the particle
-        const gradient = ctx.createRadialGradient(
-          this.x, this.y, 0,
-          this.x, this.y, this.size * 1.5
-        );
-        gradient.addColorStop(0, '#ffffffcc'); // White with 80% opacity for very bright glow
-        gradient.addColorStop(0.6, '#ffffff66'); // White with 40% opacity
-        gradient.addColorStop(1, 'transparent');
-        
-        ctx.fillStyle = gradient;
+        // Draw the solid core only (no glow)
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size * 2, 0, Math.PI * 2);
-        ctx.fill();
-        
-        // Draw the solid core on top (original particle color) - make it larger to fill the glow
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size * 1.5, 0, Math.PI * 2);
-        ctx.fillStyle = this.color + Math.floor(this.opacity * 255).toString(16).padStart(2, '0');
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = this.currentColor + Math.floor(this.opacity * 255).toString(16).padStart(2, '0');
         ctx.fill();
       }
     }

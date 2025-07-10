@@ -164,7 +164,7 @@ const Portfolio = () => {
         )}
       </nav>
       {/* Hero Section */}
-      <section id="home" className="relative h-[70vh] flex items-center justify-center bg-[#1babab]/50 overflow-hidden">
+      <section id="home" className="relative h-[45vh] flex items-center justify-center bg-[#1babab]/50 overflow-hidden">
         {/* Animated Painting Background */}
         <div 
           className="absolute left-0 right-0 opacity-20 transition-transform duration-300 ease-out"
@@ -179,20 +179,20 @@ const Portfolio = () => {
             height: '120%'
           }}
         />
-        <div className="max-w-2xl text-#011c14 text-center px-4 sm:px-8 relative z-10 mt-16">
+        <div className="max-w-2xl text-#011c14 text-center px-4 sm:px-4 relative z-10 mt-16">
           <div className="bg-white/40 backdrop-blur-md rounded-lg p-8 shadow-lg">
-            <div className="mb-2">
+            <div className="mb-1">
               {/* <div className="w-20 h-20 mb-6 rounded-full bg-gradient-to-br from-[#0e7490] to-[#bbf7d0] flex items-center justify-center text-white text-xl font-bold shadow-lg">
                 IC
               </div> */}
             </div>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-6">
+            {/* <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-6">
               Isabella Correa
             </h1>
             <p className="text-base sm:text-lg md:text-xl mb-6 md:mb-8">
               Software Developer
-            </p>
-            <p className="text-xl sm:text-xl mb-8 md:mb-12 leading-relaxed">
+            </p> */}
+            <p className="text-xl sm:text-xl mb-2 md:mb-4 leading-relaxed">
             A showcase of projects where I've brought ideas to life through code and design.
             </p>
             <div className="flex flex-row gap-4 justify-center">
@@ -224,6 +224,7 @@ const Portfolio = () => {
       {/* Projects Section */}
       <section id="projects" className="py-4 sm:py-4 px-4 sm:px-6 bg-[#1babab]/40 ">
         <div className="max-w-7xl mx-auto">
+          
           {/* Filter and View Toggle */}
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 sm:mb-3 gap-4 ">
             <div className="flex flex-wrap gap-2">
@@ -288,7 +289,7 @@ const Portfolio = () => {
                       />
                     )}
                   </div>
-                  <div className="p-4 sm:p-6">
+                  <div className="p-3 sm:p-4 pt-2 sm:pt-2">
                     <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">{project.title}</h3>
                     <p className="text-gray-600 text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed">
                       {project.description}
