@@ -20,7 +20,7 @@ const Portfolio = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'projects', 'contact'];
+      const sections = ['home', 'projects', 'about','contact'];
       const scrollPosition = window.scrollY + 100;
       
       // Check if scrolled past hero section
@@ -107,7 +107,7 @@ const Portfolio = () => {
             </div>
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-6 lg:space-x-8">
-              {['home', 'about', 'projects', 'contact'].map((item) => (
+              {['home', 'projects', 'about', 'contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
@@ -133,7 +133,7 @@ const Portfolio = () => {
         {isMenuOpen && (
           <div className="md:hidden bg-white border-t border-gray-200">
             <div className="px-4 sm:px-6 py-4 space-y-2">
-              {['home', 'about', 'projects', 'contact'].map((item) => (
+              {['home', 'projects', 'about', 'contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
@@ -176,71 +176,34 @@ const Portfolio = () => {
               Software Developer
             </p>
             <p className="text-sm sm:text-base mb-8 md:mb-12 leading-relaxed">
-              I craft beautiful digital experiences through code, specializing in modern web technologies,
-              performance optimization, and innovative user interfaces.
+              
             </p>
             <div className="flex flex-row gap-4 justify-center">
               <button
                 onClick={() => scrollToSection('projects')}
-                className="px-8 py-3 bg-[#011c14] text-[#a2fab2]/100 text-sm font-medium hover:bg-[#011c14]/50 transition-all duration-200 whitespace-nowrap"
+                className="px-8 py-3 bg-[#011c14] text-[#5bb80f]/100 text-sm font-medium hover:bg-[#011c14]/50 transition-all duration-200 whitespace-nowrap"
               >
                 View Work
               </button>
-              <button
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-3 bg-[#5bb80f]/50 text-[#011c14] text-sm font-medium hover:bg-[#5bb80f]/80 transition-all duration-200 whitespace-nowrap"
+              >
+                Resume
+              </a>
+              {/* <button
                 onClick={() => scrollToSection('contact')}
                 className="px-8 py-3 border border-[#011c14] text-[#011c14] text-sm font-medium hover:bg-[#011c14]/10 transition-colors duration-200 whitespace-nowrap"
               >
                 Contact
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Simulation Section */}
-      <section className="relative h-[60vh] w-full overflow-hidden">
-        <ParticleBackground />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white/80 z-10">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">Interactive Particle Simulation</h2>
-            {/* <p className="text-lg">Scroll to explore more</p> */}
-          </div>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section id="about" className="relative py-32 px-6 bg-[#5bb80f]/30 backdrop-blur-sm overflow-hidden">
-        {/* Animated Painting Background */}
-        <div 
-          className="absolute inset-0 opacity-20 transition-transform duration-300 ease-out"
-          style={{
-            backgroundImage: `url(${painting2})`,
-            backgroundSize: '100% auto',
-            backgroundPosition: 'center 30%',
-            transform: `translateY(${aboutPaintingOffset}px)`,
-            zIndex: 0,
-            filter: 'saturate(0.4)',
-            top: '-20%',
-            height: '150%'
-          }}
-        />
-        <div className="max-w-2xl mx-auto relative z-10">
-          <div className="bg-white/60 backdrop-blur-md rounded-lg p-8 shadow-lg">
-            <div className="text-center mb-12">
-              <div className="inline-flex items-center px-4 py-2 bg-gray-100 rounded-full text-sm text-gray-600 mb-6">
-                About
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                A few samples of my work,<br />development, design, and artwork.
-              </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Crafting culture-aware interactions with a crisp eye for<br />
-                engaging artistic, brand and websites.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
       {/* Projects Section */}
       <section id="projects" className="py-12 sm:py-16 px-4 sm:px-6 bg-[#5bb80f]/20">
         <div className="max-w-7xl mx-auto">
@@ -425,6 +388,61 @@ const Portfolio = () => {
           </div>
         </div>
       </section>
+
+      {/* Simulation Section */}
+      <section className="relative h-[60vh] w-full overflow-hidden">
+        <ParticleBackground />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center text-white/80 z-10">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Interactive Particle Simulation</h2>
+            {/* <p className="text-lg">Scroll to explore more</p> */}
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="relative py-32 px-6 bg-[#5bb80f]/30 backdrop-blur-sm overflow-hidden">
+        {/* Animated Painting Background */}
+        <div 
+          className="absolute inset-0 opacity-20 transition-transform duration-300 ease-out"
+          style={{
+            backgroundImage: `url(${painting2})`,
+            backgroundSize: '100% auto',
+            backgroundPosition: 'center 30%',
+            transform: `translateY(${aboutPaintingOffset}px)`,
+            zIndex: 0,
+            filter: 'saturate(0.4)',
+            top: '-20%',
+            height: '150%'
+          }}
+        />
+        <div className="max-w-2xl mx-auto relative z-10">
+          <div className="bg-white/60 backdrop-blur-md rounded-lg p-8 shadow-lg">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center px-4 py-2 bg-gray-100 rounded-full text-sm text-gray-600 mb-6">
+                About
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                A few samples of my work,<br />development, design, and artwork.
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Crafting culture-aware interactions with a crisp eye for<br />
+                engaging artistic, brand and websites.
+              </p>
+              <div className="mt-8">
+                <Link
+                  to="/some-art"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#011c14] text-white text-sm font-medium hover:bg-[#011c14]/80 transition-all duration-200 rounded-md"
+                >
+                  View Some Art
+                  <ArrowUpRight size={16} />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
       {/* Contact Section */}
       <section id="contact" className="py-12 sm:py-16 px-4 sm:px-6 bg-[#5bb80f]/35">
         <div className="max-w-4xl mx-auto text-center">
