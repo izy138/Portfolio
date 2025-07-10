@@ -69,6 +69,7 @@ const projects = [
     description: "Currently in development",
     longDescription: `Currently in development.`,
     categories: ["Development", "Golang"],
+    tech: ["Golang", "Database", "SQL"],
     github: "https://github.com/yourusername/react-dashboard",
     demo: "https://your-dashboard.vercel.app",
     image: wip

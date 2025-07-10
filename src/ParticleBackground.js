@@ -16,7 +16,7 @@ const ParticleBackground = () => {
       repelForce: 3, // Reduced from 9 to prevent ejection
       forceFactor: 8,
       frictionFactor: 0.7,
-      mouseForce: 20,
+      mouseForce: 30,
       mouseRadius: 200,
       particleSize: 4
     };
@@ -52,21 +52,21 @@ const ParticleBackground = () => {
       '#00ffff'   // RGB(0.000, 1.000, 1.000) - cyan
     ];
     
-    // Check if hero section is visible
-    function isHeroVisible() {
-      const heroSection = document.getElementById('home');
-      if (!heroSection) return true; // If no hero section found, keep running
+    // Check if simulation section is visible
+    function isSimulationVisible() {
+      const simulationSection = document.querySelector('section:has(canvas)') || document.querySelector('.relative.h-\\[60vh\\]');
+      if (!simulationSection) return true; // If no simulation section found, keep running
       
-      const rect = heroSection.getBoundingClientRect();
+      const rect = simulationSection.getBoundingClientRect();
       const windowHeight = window.innerHeight;
       
-      // Check if hero section is at least partially visible
+      // Check if simulation section is at least partially visible
       return rect.bottom > 0 && rect.top < windowHeight;
     }
     
     // Pause/resume animation based on scroll position
     function checkScrollAndPause() {
-      const shouldBeVisible = isHeroVisible();
+      const shouldBeVisible = isSimulationVisible();
       
       if (shouldBeVisible && isPausedRef.current) {
         // Resume animation
@@ -298,21 +298,45 @@ const ParticleBackground = () => {
     
     // Resize canvas
     function resizeCanvas() {
-      const containerWidth = window.innerWidth / 2; // Half the screen width
-      const containerHeight = window.innerHeight;
+      const isMobile = window.innerWidth < 768; // md breakpoint
+      const containerWidth = window.innerWidth;
       
-      // Make the canvas larger than half the page (about 60% of screen width)
-      const width = window.innerWidth * 0.5;
-      const height = containerHeight; // Use full height
+      // Find the simulation section to get its actual height
+      const simulationSection = document.querySelector('section:has(canvas)') || document.querySelector('.relative.h-\\[60vh\\]');
+      const containerHeight = simulationSection ? simulationSection.offsetHeight : window.innerHeight * 0.6;
+      
+      let width, height;
+      
+      if (isMobile) {
+        // On mobile, make canvas full width and height of simulation section
+        width = containerWidth;
+        height = containerHeight;
+      } else {
+        // On desktop, use full screen width and height of simulation section
+        width = containerWidth;
+        height = containerHeight;
+      }
       
       canvas.width = width;
       canvas.height = height;
       
-      // Position to fill the full height, extending beyond the right half
+      // Position canvas
       canvas.style.width = width + 'px';
       canvas.style.height = height + 'px';
-      canvas.style.top = '0px';
-      canvas.style.right = '0px';
+      
+      if (isMobile) {
+        // On mobile, position to cover the simulation section
+        canvas.style.top = '0px';
+        canvas.style.bottom = 'auto';
+        canvas.style.left = '0px';
+        canvas.style.right = 'auto';
+      } else {
+        // On desktop, position to cover full section
+        canvas.style.top = '0px';
+        canvas.style.right = '0px';
+        canvas.style.left = '0px';
+        canvas.style.bottom = 'auto';
+      }
     }
     
     // Event handlers

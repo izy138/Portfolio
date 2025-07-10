@@ -15,7 +15,7 @@ export default function ProjectPage() {
   if (!project) return <div className="p-8 text-center">Project not found.</div>;
 
   return (
-    <div className="max-w-4xl mx-auto my-12 bg-[#0fb82b]/10 p-8 rounded-lg">
+    <div className="max-w-6xl mx-auto my-9 bg-[#0fb82b]/10 p-8 rounded-lg">
       {/* Project Details Section */}
       <div className="flex flex-col md:flex-row bg-white text-#011c14 rounded-lg shadow-lg overflow-hidden mb-8">
         <a href={project.demo} target="_blank" rel="noopener noreferrer" className="w-full md:w-1/2 cursor-pointer hover:opacity-90 transition-opacity">
