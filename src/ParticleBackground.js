@@ -16,7 +16,7 @@ const ParticleBackground = () => {
       repelForce: 3, // Reduced from 9 to prevent ejection
       forceFactor: 8,
       frictionFactor: 0.7,
-      mouseForce: 30,
+      mouseForce: 60,
       mouseRadius: 200,
       particleSize: 4
     };
@@ -275,7 +275,7 @@ const ParticleBackground = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
       // Draw the animated gradient background
-      ctx.fillStyle = '#000d00'; //#305436 with 20% opacity (33 in hex = 20%) //black
+      ctx.fillStyle = '#065757'; //#305436 with 20% opacity (33 in hex = 20%) //black
       
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       

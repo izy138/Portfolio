@@ -3,8 +3,9 @@ import { Menu, X, Github, ExternalLink, Mail, Linkedin, ArrowUpRight } from 'luc
 import { Link } from 'react-router-dom';
 import projects from './projects';
 import ParticleBackground from './ParticleBackground';
-import painting1 from './assets/painting1.jpg';
-import painting2 from './assets/painting2.jpg';
+import painting1 from './assets/art/painting1.jpg';
+import painting2 from './assets/art/painting2.jpg';
+import portfolioResume from './assets/portfolio_resume.pdf';
 
 const categories = ['all', 'React', 'JavaScript', 'Java', 'AI', 'Graphics', 'Interactive', 'Golang'];
 
@@ -147,7 +148,7 @@ const Portfolio = () => {
         )}
       </nav>
       {/* Hero Section */}
-      <section id="home" className="relative h-screen flex items-center justify-center bg-[#5bb80f]/30 overflow-hidden">
+      <section id="home" className="relative h-screen flex items-center justify-center bg-[#1babab]/50 overflow-hidden">
         {/* Animated Painting Background */}
         <div 
           className="absolute left-0 right-0 opacity-20 transition-transform duration-300 ease-out"
@@ -175,21 +176,21 @@ const Portfolio = () => {
             <p className="text-base sm:text-lg md:text-xl mb-6 md:mb-8">
               Software Developer
             </p>
-            <p className="text-sm sm:text-base mb-8 md:mb-12 leading-relaxed">
-              
+            <p className="text-xl sm:text-xl mb-8 md:mb-12 leading-relaxed">
+            A showcase of projects where I've brought ideas to life through code and design.
             </p>
             <div className="flex flex-row gap-4 justify-center">
               <button
                 onClick={() => scrollToSection('projects')}
-                className="px-8 py-3 bg-[#011c14] text-[#5bb80f]/100 text-sm font-medium hover:bg-[#011c14]/50 transition-all duration-200 whitespace-nowrap"
+                className="px-8 py-3 bg-[#011c14] text-[#1babab] text-sm font-medium hover:bg-[#011c14]/90 transition-all duration-200 whitespace-nowrap"
               >
                 View Work
               </button>
               <a
-                href="/resume.pdf"
+                href={portfolioResume}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-3 bg-[#5bb80f]/50 text-[#011c14] text-sm font-medium hover:bg-[#5bb80f]/80 transition-all duration-200 whitespace-nowrap"
+                className="px-8 py-3 bg-[#1babab]/50 text-[#011c14] text-sm font-medium hover:bg-[#1babab]/80 transition-all duration-200 whitespace-nowrap"
               >
                 Resume
               </a>
@@ -205,10 +206,10 @@ const Portfolio = () => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-12 sm:py-16 px-4 sm:px-6 bg-[#5bb80f]/20">
+      <section id="projects" className="py-12 sm:py-16 px-4 sm:px-6 bg-[#1babab]/40 ">
         <div className="max-w-7xl mx-auto">
           {/* Filter and View Toggle */}
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 sm:mb-8 gap-4">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 sm:mb-8 gap-4 ">
             <div className="flex flex-wrap gap-2">
               {categories.map((category) => (
                 <button
@@ -242,39 +243,39 @@ const Portfolio = () => {
           </div>
           {/* Projects Grid View */}
           {viewMode === 'grid' && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 ">
               {filteredProjects.map((project, index) => (
                 <Link 
                   to={`/project/${project.slug}`} 
                   key={project.slug} 
-                  className={`project-card bg-white/90 backdrop-blur-sm group hover:shadow-xl transition-all duration-700 transform ${
+                  className={`project-card border-2 border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm group hover:shadow-xl transition-all duration-700 transform ${
                     visibleProjects.has(index) 
                       ? 'opacity-100 translate-y-0' 
                       : 'opacity-0 translate-y-8'
                   }`}
                   style={{
-                    transitionDelay: `${index * 100}ms`
+                    transitionDelay: `${Math.min(index * 30, 100)}ms`
                   }}
                 >
-                  <div className="aspect-[4/3] overflow-hidden">
+                  <div className="aspect-[4/3] overflow-hidden rounded-md">
                     {project.hasHoverEffect ? (
                       <div className="w-full h-full relative">
                         <img
                           src={project.stillImage}
                           alt={project.title}
-                          className="w-full h-full object-cover absolute inset-0 transition-opacity duration-300 group-hover:opacity-0"
+                          className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-300 group-hover:opacity-0 ${project.imagePosition || 'object-center'}`}
                         />
                         <img
                           src={project.image}
                           alt={project.title}
-                          className="w-full h-full object-cover absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+                          className={`w-full h-full object-cover absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100 ${project.imagePosition || 'object-center'}`}
                         />
                       </div>
                     ) : (
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        className={`w-full h-full rounded-md object-cover group-hover:scale-105 transition-transform duration-300 ${project.imagePosition || 'object-center'}`}
                       />
                     )}
                   </div>
@@ -401,7 +402,7 @@ const Portfolio = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="relative py-32 px-6 bg-[#5bb80f]/30 backdrop-blur-sm overflow-hidden">
+      <section id="about" className="relative py-32 px-6 bg-[#1babab]/50 backdrop-blur-sm overflow-hidden">
         {/* Animated Painting Background */}
         <div 
           className="absolute inset-0 opacity-20 transition-transform duration-300 ease-out"
@@ -419,15 +420,18 @@ const Portfolio = () => {
         <div className="max-w-2xl mx-auto relative z-10">
           <div className="bg-white/60 backdrop-blur-md rounded-lg p-8 shadow-lg">
             <div className="text-center mb-12">
-              <div className="inline-flex items-center px-4 py-2 bg-gray-100 rounded-full text-sm text-gray-600 mb-6">
+              {/* <div className="inline-flex items-center px-4 py-2 bg-gray-100 rounded-full text-sm text-gray-600 mb-6">
                 About
-              </div>
+              </div> */}
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                A few samples of my work,<br />development, design, and artwork.
+                About me:
               </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Crafting culture-aware interactions with a crisp eye for<br />
-                engaging artistic, brand and websites.
+              <p className="text-lg text-gray-600 max-w-2xl text-left">
+                Hi, I'm Isabella Correa, a computer science student and software developer passionate about building innovative solutions that solve real problems. Currently pursuing my B.S. in Computer Science at FIU while working as a Front End Intern at Red Peak Corp, I bring a unique perspective combining technical expertise with a creative eye for design.
+                <br /><br />
+                I love learning new technologies and applying them to real-world problems. I'm currently learning Golang and building my own database from scratch. I loved exploring cutting-edge technologies like WebGPU for performance-driven applications. From AI-powered Note-taking apps to particle physics simulators, I enjoy creating projects that interest me and give me a sense of accomplishment.  
+                <br /><br />
+                When I'm not coding, you'll find me mentoring fellow students as a Teaching Assistant at FIU. I'm always excited to connect with fellow developers and explore new opportunities to create meaningful digital experiences.
               </p>
               <div className="mt-8">
                 <Link
@@ -444,7 +448,7 @@ const Portfolio = () => {
       </section>
       
       {/* Contact Section */}
-      <section id="contact" className="py-12 sm:py-16 px-4 sm:px-6 bg-[#5bb80f]/35">
+      <section id="contact" className="py-12 sm:py-16 px-4 sm:px-6 bg-[#1babab]/40 ">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6 sm:mb-8">
             Let's Work Together
@@ -479,7 +483,7 @@ const Portfolio = () => {
         </div>
       </section>
       {/* Footer */}
-      <footer className="py-6 sm:py-8 px-4 sm:px-6 border-t border-gray-200 bg-[#5bb80f]/20 backdrop-blur-sm">
+      <footer className="py-6 sm:py-8 px-4 sm:px-6 border-t border-gray-200 bg-[#1babab]/20  backdrop-blur-sm">
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-gray-500 text-xs sm:text-sm">
             © 2025 Isabella Correa. Built with React and deployed on Vercel.

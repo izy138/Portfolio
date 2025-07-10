@@ -15,29 +15,32 @@ const projects = [
     tech: ["WebGPU", "JavaScript", "WGSL", "SQLite"],
     github: "https://github.com/izy138/ParticleSim",
     demo: "https://izy138.github.io/ParticleSim",
-    image: particlesim
+    image: particlesim,
+    imagePosition: "object-center"
   },
   {
     slug: "intelligent-notes",//"react-dashboard", 
     title: "Intelligent Notes",
     description: "Note taking app using AI to summarize and organize notes.",
     longDescription: `This is a detailed writeup about the React Analytics Dashboard project.`,
-    categories: ["Java", "AI"],
+    categories: ["AI","Java", "JavaFX", "Maven"],
     tech: ["Java", "Maven", "JavaFX", "AI"],
     github: "https://github.com/izy138/Intelligent-Notes/",
     demo: "https://youtu.be/hVVNb0Lfw4I?si=qC5AGLoeRv5qOs_5&t=652",
-    image: intelligentnotes
+    image: intelligentnotes,
+    imagePosition: "object-left"
   },
   {
     slug: "kanban-board",//"react-dashboard", 
     title: "Kanban Board",
     description: "Task tracking with board and list views.",
     longDescription: `Includes priority, due date, and tags.`,
-    categories: [ "React", ],
+    categories: ["React", "TypeScript", "TailwindCSS", "Node.js" ],
     tech: ["React", "TypeScript", "TailwindCSS", "Node.js", "Express", "Supabase"],
     github: "https://github.com/yourusername/react-dashboard",
     demo: "https://izy138-kanban.vercel.app",
-    image: kanban
+    image: kanban,
+    imagePosition: "object-top"
   },
 
   {
@@ -46,11 +49,12 @@ const projects = [
     description: "Interning at Red Peak Corp's Sponsor Stories, using AI to generate personalized book content.",
     longDescription: `Worked on the frontend of the Sponsor Stories website, using React, TypeScript, and TailwindCSS to create a responsive and user-friendly interface and Gemini's api.
     Maintained python backend and scripts for AI generation. Enhanced the book cover generation process and its design using pillow and Gemini's api.`,
-    categories: ["Internship", "React", "AI"],
+    categories: ["Python", "React", "AI", "Typescript", "TailwindCSS"],
     tech: ["React", "TypeScript", "TailwindCSS", "Node.js", "AI", "Python", "Pillow, Docker"],
     // github: "https://github.com/yourusername/react-dashboard",
     demo: "https://red-peak.ai",
-    image: sponsorstories
+    image: sponsorstories,
+    imagePosition: "object-left"
   },
   {
     slug: "chat-app",//"react-dashboard", 
@@ -61,7 +65,8 @@ const projects = [
     tech: ["React", "TypeScript", "TailwindCSS", "Node.js", "Express", "Firebase"],
     github: "https://github.com/yourusername/react-dashboard",
     demo: "https://your-dashboard.vercel.app",
-    image: wip
+    image: wip,
+    imagePosition: "object-bottom"
   },
   {
     slug: "go-data",//"react-dashboard", 
@@ -72,7 +77,8 @@ const projects = [
     tech: ["Golang", "Database", "SQL"],
     github: "https://github.com/yourusername/react-dashboard",
     demo: "https://your-dashboard.vercel.app",
-    image: wip
+    image: wip,
+    imagePosition: "object-center"
   },
 
   // ...add the rest of your projects here, following the same structure
