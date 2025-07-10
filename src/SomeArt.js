@@ -339,6 +339,11 @@ const SomeArt = () => {
   const [selectedArtworkIndex, setSelectedArtworkIndex] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const handleImageClick = (artwork) => {
     const index = artworkData.findIndex(item => item.id === artwork.id);
     setSelectedArtworkIndex(index);
