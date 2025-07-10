@@ -65,7 +65,7 @@ const blogData = {
       date: "2024-02-15",
       title: "Backend Integration",
       content: "Successfully integrated Supabase for real-time data synchronization. Tasks now persist across sessions and update in real-time for all users. Added authentication as well.",
-      tags: ["Supabase", "Backend", "Real-time"]
+      tags: ["React", "Backend", "Real-time"]
     }
   ],
   "chat-app": [

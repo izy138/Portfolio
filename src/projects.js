@@ -36,7 +36,7 @@ const projects = [
     description: "Task tracking with board and list views.",
     longDescription: `Includes priority, due date, and tags.`,
     categories: ["React", "TypeScript", "TailwindCSS", "Node.js" ],
-    tech: ["React", "TypeScript", "TailwindCSS", "Node.js", "Express", "Supabase"],
+    tech: ["React", "TypeScript", "TailwindCSS", "Node.js", "Express"],
     github: "https://github.com/yourusername/react-dashboard",
     demo: "https://izy138-kanban.vercel.app",
     image: kanban,
@@ -50,7 +50,7 @@ const projects = [
     longDescription: `Worked on the frontend of the Sponsor Stories website, using React, TypeScript, and TailwindCSS to create a responsive and user-friendly interface and Gemini's api.
     Maintained python backend and scripts for AI generation. Enhanced the book cover generation process and its design using pillow and Gemini's api.`,
     categories: ["Python", "React", "AI", "Typescript", "TailwindCSS"],
-    tech: ["React", "TypeScript", "TailwindCSS", "Node.js", "AI", "Python", "Pillow, Docker"],
+    tech: ["React", "TypeScript", "TailwindCSS", "Node.js", "AI", "Python", "Pillow", "Docker"],
     // github: "https://github.com/yourusername/react-dashboard",
     demo: "https://red-peak.ai",
     image: sponsorstories,

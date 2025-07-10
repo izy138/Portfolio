@@ -325,16 +325,21 @@ const Portfolio = () => {
               {filteredProjects.map((project, index) => (
                 <div 
                   key={project.slug} 
-                  className={`project-card border-t border-gray-200 py-8 group bg-white/80 hover:bg-white/80 transition-all duration-700 transform ${
-                    visibleProjects.has(index) 
-                      ? 'opacity-100 translate-y-0' 
-                      : 'opacity-0 translate-y-8'
-                  }`}
+                  className="project-card border-t border-gray-200 py-4 px-4 rounded-lg group bg-white/80 hover:bg-white/80 transition-all duration-700 transform opacity-0 translate-x-[-20px] animate-slide-in"
                   style={{
-                    transitionDelay: `${index * 100}ms`
+                    animationDelay: `${index * 100}ms`,
+                    animationFillMode: 'forwards'
                   }}
                 >
                   <div className="flex flex-col md:flex-row md:items-center gap-6">
+                    {/* Project Image */}
+                    <div className="flex-shrink-0 w-20 h-20 md:w-24 md:h-24">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover rounded-md"
+                      />
+                    </div>
                     <div className="flex-1">
                       <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-gray-600 transition-colors">
                         {project.title}
@@ -351,13 +356,13 @@ const Portfolio = () => {
                       </div>
                     </div>
                     <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
-                      <div className="flex flex-wrap gap-2">
+                      {/* <div className="flex flex-wrap gap-2">
                         {project.categories.map((cat) => (
                           <span key={cat} className="text-sm text-gray-500">
                             {cat}
                           </span>
                         ))}
-                      </div>
+                      </div> */}
                       <div className="flex gap-3">
                         <a
                           href={project.github}
