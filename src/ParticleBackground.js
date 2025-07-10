@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-const ParticleBackground = () => {
+const ParticleBackground = ({ onMouseStateChange }) => {
   const canvasRef = useRef(null);
   const animationRef = useRef(null);
   const isPausedRef = useRef(false);
@@ -350,14 +350,29 @@ const ParticleBackground = () => {
         // Convert screen coordinates to canvas coordinates
         mouse.x = e.clientX - canvasRect.left;
         mouse.y = e.clientY - canvasRect.top;
-      mouse.isActive = true;
+        mouse.isActive = true;
+        
+        // Notify parent component that mouse is over simulation
+        if (onMouseStateChange) {
+          onMouseStateChange(true);
+        }
       } else {
         mouse.isActive = false;
+        
+        // Notify parent component that mouse is not over simulation
+        if (onMouseStateChange) {
+          onMouseStateChange(false);
+        }
       }
     };
     
     const handleMouseLeave = () => {
       mouse.isActive = false;
+      
+      // Notify parent component that mouse left simulation
+      if (onMouseStateChange) {
+        onMouseStateChange(false);
+      }
     };
     
     const handleResize = () => {

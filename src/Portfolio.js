@@ -18,6 +18,7 @@ const Portfolio = () => {
   const [paintingOffset, setPaintingOffset] = useState(0);
   const [aboutPaintingOffset, setAboutPaintingOffset] = useState(0);
   const [visibleProjects, setVisibleProjects] = useState(new Set());
+  const [isMouseOverSimulation, setIsMouseOverSimulation] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -392,9 +393,9 @@ const Portfolio = () => {
 
       {/* Simulation Section */}
       <section className="relative h-[60vh] w-full overflow-hidden">
-        <ParticleBackground />
+        <ParticleBackground onMouseStateChange={setIsMouseOverSimulation} />
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white/80 z-10">
+          <div className={`text-center text-white/80 z-10 transition-opacity duration-300 ${isMouseOverSimulation ? 'opacity-0' : 'opacity-100'}`}>
             <h2 className="text-2xl md:text-3xl font-bold mb-4">Interactive Particle Simulation</h2>
             {/* <p className="text-lg">Scroll to explore more</p> */}
           </div>

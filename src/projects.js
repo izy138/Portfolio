@@ -66,7 +66,7 @@ const projects = [
     github: "https://github.com/yourusername/react-dashboard",
     demo: "https://your-dashboard.vercel.app",
     image: wip,
-    imagePosition: "object-bottom"
+    imagePosition: "object-center"
   },
   {
     slug: "go-data",//"react-dashboard", 
