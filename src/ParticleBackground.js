@@ -163,10 +163,19 @@ const ParticleBackground = ({ onMouseStateChange }) => {
         this.vy = 0;
         this.colorIndex = Math.floor(Math.random() * config.colorCount);
         this.color = colorPalette[this.colorIndex];
-        this.targetColor = colorPalette[(this.colorIndex + 1) % config.colorCount];
-        this.colorTime = Math.random() * Math.PI * 2; // Random start time for variety
+        
+        // Define which colors should cycle and which should be solid
+        this.shouldCycle = this.colorIndex === 1 || this.colorIndex === 0; // Red (1) and Green (0) cycle
+        this.isSolid = this.colorIndex === 2 || this.colorIndex === 5; // Teal (2) and Cyan (5) are solid
+        
+        if (this.shouldCycle) {
+          // Red cycles with Purple (4), Green cycles with Blue (3)
+          this.targetColor = this.colorIndex === 1 ? colorPalette[4] : colorPalette[3];
+          this.colorTime = Math.random() * Math.PI * 2; // Random start time for variety
+        }
+        
         this.size = config.particleSize * (0.8 + Math.random() * 0.4);
-        this.opacity = 0.9 + Math.random() * 0.2;
+        this.opacity = 0.8 + Math.random() * 0.2;
       }
       
       // Color interpolation helper
@@ -197,9 +206,11 @@ const ParticleBackground = ({ onMouseStateChange }) => {
         this.y += this.vy;
         
         // Update color cycling
-        this.colorTime += 0.01;
-        const t = (Math.sin(this.colorTime) + 1) / 2; // Smooth oscillation between 0 and 1
-        this.currentColor = this.interpolateColor(this.color, this.targetColor, t);
+        if (this.shouldCycle) {
+          this.colorTime += 0.01;
+          const t = (Math.sin(this.colorTime) + 1) / 2; // Smooth oscillation between 0 and 1
+          this.currentColor = this.interpolateColor(this.color, this.targetColor, t);
+        }
         
         if (this.x < 0) this.x = canvas.width;
         if (this.x > canvas.width) this.x = 0;
@@ -266,7 +277,10 @@ const ParticleBackground = ({ onMouseStateChange }) => {
         // Draw the solid core only (no glow)
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = this.currentColor + Math.floor(this.opacity * 255).toString(16).padStart(2, '0');
+        
+        // Use interpolated color for cycling particles, original color for solid particles
+        const drawColor = this.shouldCycle ? this.currentColor : this.color;
+        ctx.fillStyle = drawColor + Math.floor(this.opacity * 255).toString(16).padStart(2, '0');
         ctx.fill();
       }
     }
@@ -288,7 +302,7 @@ const ParticleBackground = ({ onMouseStateChange }) => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
       // Draw the animated gradient background
-      ctx.fillStyle = '#065757'; //#305436 with 20% opacity (33 in hex = 20%) //black
+      ctx.fillStyle = '#001717'; //#305436 with 20% opacity (33 in hex = 20%) //black
       
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       

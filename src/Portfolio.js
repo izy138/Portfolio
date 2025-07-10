@@ -206,7 +206,7 @@ const Portfolio = () => {
                 href={portfolioResume}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-3 bg-[#1babab]/50 text-[#011c14] text-sm font-medium hover:bg-[#1babab]/80 transition-all duration-200 whitespace-nowrap"
+                className="px-8 py-3 bg-[#1babab]/50 text-[#011c14] text-sm font-medium rounded-md hover:bg-[#1babab]/80 transition-all duration-200 whitespace-nowrap"
               >
                 Resume
               </a>
@@ -232,10 +232,12 @@ const Portfolio = () => {
                 <button
                   key={category}
                   onClick={() => setSelectedFilter(category)}
-                  className={`px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium transition-colors duration-200 rounded-md ${selectedFilter === category
-                      ? 'bg-gray-900 text-white'
-                      : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-400'
+                  className={`px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium transition-colors duration-200 rounded-md 
+                    border-[#1babab] ${selectedFilter === category
+                      ? 'bg-[#1babab] text-white'
+                      : 'bg-white text-[#011c14] hover:bg-[#1babab]/5 border'
                     }`}
+                    //{`px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium rounded-md border text-[#011c14] border-[#1babab]/80 ${viewMode === 'grid' ? 'bg-[#1babab]/50  ': 'bg-white'
                 >
                   {category === 'all' ? 'Show All' : category}
                 </button>
@@ -244,14 +246,14 @@ const Portfolio = () => {
             <div className="flex gap-2">
               <button
                 onClick={() => setViewMode('grid')}
-                className={`px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium ${viewMode === 'grid' ? 'bg-gray-900 text-white' : 'bg-white text-gray-600 border border-gray-200'
+                className={`px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium rounded-md border text-[#011c14] border-[#1babab]/80 ${viewMode === 'grid' ? 'bg-[#1babab]/50  ': 'bg-white'
                   }`}
               >
                 Grid
               </button>
               <button
                 onClick={() => setViewMode('list')}
-                className={`px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium ${viewMode === 'list' ? 'bg-gray-900 text-white' : 'bg-white text-gray-600 border border-gray-200'
+                className={`px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium rounded-md border text-[#011c14] border-[#1babab]/80 ${viewMode === 'list' ? 'bg-[#1babab]/50' : 'bg-white  '
                   }`}
               >
                 List
@@ -475,21 +477,21 @@ const Portfolio = () => {
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <a
               href="mailto:isabellapc97@gmail.com"
-              className="flex items-center justify-center gap-2 px-6 sm:px-8 py-2 sm:py-3 border border-gray-300 bg-[#011c14]/60 text-white text-sm font-medium hover:bg-[#011c14]/90  transition-colors duration-200"
+              className="flex items-center justify-center gap-2 px-6 sm:px-8 py-2 sm:py-3 border-2  border-[#1babab] rounded-md bg-[#1babab]/50 text-[#011c14] text-sm font-medium hover:bg-[#1babab]/80 transition-colors duration-200"
               >
               <Mail size={16} />
               Email Me
             </a>
             <a
               href="https://linkedin.com/in/izy138"
-              className="flex items-center justify-center gap-2 px-6 sm:px-8 py-2 sm:py-3 border border-gray-300 bg-[#011c14]/60 text-white text-sm font-medium hover:bg-[#011c14]/90  transition-colors duration-200"
+              className="flex items-center justify-center gap-2 px-6 sm:px-8 py-2 sm:py-3 border-2 border-[#1babab] rounded-md bg-[#1babab]/50 text-[#011c14] text-sm font-medium hover:bg-[#1babab]/80 transition-colors duration-200"
             >
               <Linkedin size={16} />
               LinkedIn
             </a>
             <a
               href="https://github.com/izy138"
-              className="flex items-center justify-center gap-2 px-6 sm:px-8 py-2 sm:py-3 border border-gray-300 bg-[#011c14]/60 text-white text-sm font-medium hover:bg-[#011c14]/90  transition-colors duration-200"
+              className="flex items-center justify-center gap-2 px-6 sm:px-8 py-2 sm:py-3 border-2 border-[#1babab] rounded-md bg-[#1babab]/50 text-[#011c14] text-sm font-medium hover:bg-[#1babab]/80 transition-colors duration-200"
             >
               <Github size={16} />
               GitHub
