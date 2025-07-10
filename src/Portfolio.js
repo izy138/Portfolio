@@ -70,14 +70,24 @@ const Portfolio = () => {
       
       setVisibleProjects(newVisibleProjects);
       
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const offsetTop = element.offsetTop;
-          const offsetHeight = element.offsetHeight;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section);
-            break;
+      // Check if we're at the bottom of the page
+      const documentHeight = document.documentElement.scrollHeight;
+      const windowHeight = window.innerHeight;
+      const isAtBottom = window.scrollY + windowHeight >= documentHeight - 50; // 50px threshold
+      
+      if (isAtBottom) {
+        setActiveSection('contact');
+      } else {
+        // Normal section detection
+        for (const section of sections) {
+          const element = document.getElementById(section);
+          if (element) {
+            const offsetTop = element.offsetTop;
+            const offsetHeight = element.offsetHeight;
+            if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+              setActiveSection(section);
+              break;
+            }
           }
         }
       }
@@ -89,7 +99,12 @@ const Portfolio = () => {
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const navHeight =60; // Approximate height of the fixed navigation bar
+      const elementPosition = element.offsetTop - navHeight;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
     }
     setIsMenuOpen(false);
   };
@@ -105,7 +120,7 @@ const Portfolio = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="text-lg sm:text-xl font-semibold text-gray-900">
-              Portfolio
+              Isabella Correa
             </div>
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-6 lg:space-x-8">
@@ -149,7 +164,7 @@ const Portfolio = () => {
         )}
       </nav>
       {/* Hero Section */}
-      <section id="home" className="relative h-screen flex items-center justify-center bg-[#1babab]/50 overflow-hidden">
+      <section id="home" className="relative h-[70vh] flex items-center justify-center bg-[#1babab]/50 overflow-hidden">
         {/* Animated Painting Background */}
         <div 
           className="absolute left-0 right-0 opacity-20 transition-transform duration-300 ease-out"
@@ -164,14 +179,14 @@ const Portfolio = () => {
             height: '120%'
           }}
         />
-        <div className="max-w-2xl text-#011c14 text-center px-4 sm:px-8 relative z-10">
+        <div className="max-w-2xl text-#011c14 text-center px-4 sm:px-8 relative z-10 mt-16">
           <div className="bg-white/40 backdrop-blur-md rounded-lg p-8 shadow-lg">
-            <div className="mb-6">
+            <div className="mb-2">
               {/* <div className="w-20 h-20 mb-6 rounded-full bg-gradient-to-br from-[#0e7490] to-[#bbf7d0] flex items-center justify-center text-white text-xl font-bold shadow-lg">
                 IC
               </div> */}
             </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-6">
               Isabella Correa
             </h1>
             <p className="text-base sm:text-lg md:text-xl mb-6 md:mb-8">
@@ -181,12 +196,12 @@ const Portfolio = () => {
             A showcase of projects where I've brought ideas to life through code and design.
             </p>
             <div className="flex flex-row gap-4 justify-center">
-              <button
+              {/* <button
                 onClick={() => scrollToSection('projects')}
                 className="px-8 py-3 bg-[#011c14] text-[#1babab] text-sm font-medium hover:bg-[#011c14]/90 transition-all duration-200 whitespace-nowrap"
               >
                 View Work
-              </button>
+              </button> */}
               <a
                 href={portfolioResume}
                 target="_blank"
@@ -207,16 +222,16 @@ const Portfolio = () => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-12 sm:py-16 px-4 sm:px-6 bg-[#1babab]/40 ">
+      <section id="projects" className="py-4 sm:py-4 px-4 sm:px-6 bg-[#1babab]/40 ">
         <div className="max-w-7xl mx-auto">
           {/* Filter and View Toggle */}
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 sm:mb-8 gap-4 ">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 sm:mb-3 gap-4 ">
             <div className="flex flex-wrap gap-2">
               {categories.map((category) => (
                 <button
                   key={category}
                   onClick={() => setSelectedFilter(category)}
-                  className={`px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium transition-colors duration-200 ${selectedFilter === category
+                  className={`px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium transition-colors duration-200 rounded-md ${selectedFilter === category
                       ? 'bg-gray-900 text-white'
                       : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-400'
                     }`}
@@ -249,14 +264,7 @@ const Portfolio = () => {
                 <Link 
                   to={`/project/${project.slug}`} 
                   key={project.slug} 
-                  className={`project-card border-2 border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm group hover:shadow-xl transition-all duration-700 transform ${
-                    visibleProjects.has(index) 
-                      ? 'opacity-100 translate-y-0' 
-                      : 'opacity-0 translate-y-8'
-                  }`}
-                  style={{
-                    transitionDelay: `${Math.min(index * 30, 100)}ms`
-                  }}
+                  className="project-card border-2 border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm group hover:shadow-xl transition-all duration-300 transform"
                 >
                   <div className="aspect-[4/3] overflow-hidden rounded-md">
                     {project.hasHoverEffect ? (
@@ -389,9 +397,9 @@ const Portfolio = () => {
             </div>
           )}
           <div className="text-center mt-12">
-            <button className="px-8 py-3 border border-gray-300 text-gray-900 text-sm font-medium hover:bg-gray-50 transition-colors duration-200">
+            {/* <button className="px-8 py-3 border border-gray-300 text-gray-900 text-sm font-medium hover:bg-gray-50 transition-colors duration-200">
               View Full Portfolio
-            </button>
+            </button> */}
           </div>
         </div>
       </section>
@@ -408,7 +416,7 @@ const Portfolio = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="relative py-32 px-6 bg-[#1babab]/50 backdrop-blur-sm overflow-hidden">
+      <section id="about" className="relative py-10 px-6 bg-[#1babab]/50 backdrop-blur-sm overflow-hidden">
         {/* Animated Painting Background */}
         <div 
           className="absolute inset-0 opacity-20 transition-transform duration-300 ease-out"
@@ -425,7 +433,7 @@ const Portfolio = () => {
         />
         <div className="max-w-2xl mx-auto relative z-10">
           <div className="bg-white/60 backdrop-blur-md rounded-lg p-8 shadow-lg">
-            <div className="text-center mb-12">
+            <div className="text-center mb-2">
               {/* <div className="inline-flex items-center px-4 py-2 bg-gray-100 rounded-full text-sm text-gray-600 mb-6">
                 About
               </div> */}
@@ -454,7 +462,7 @@ const Portfolio = () => {
       </section>
       
       {/* Contact Section */}
-      <section id="contact" className="py-12 sm:py-16 px-4 sm:px-6 bg-[#1babab]/40 ">
+      <section id="contact" className="py-12 sm:py-40 px-4 sm:px-6 bg-[#1babab]/40 ">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6 sm:mb-8">
             Let's Work Together
@@ -466,8 +474,8 @@ const Portfolio = () => {
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <a
               href="mailto:isabellapc97@gmail.com"
-              className="flex items-center justify-center gap-2 px-6 sm:px-8 py-2 sm:py-3 bg-[#011c14]/70 text-white text-sm font-medium hover:bg-[#011c14]/90 transition-all duration-200 shadow-md"
-            >
+              className="flex items-center justify-center gap-2 px-6 sm:px-8 py-2 sm:py-3 border border-gray-300 bg-[#011c14]/60 text-white text-sm font-medium hover:bg-[#011c14]/90  transition-colors duration-200"
+              >
               <Mail size={16} />
               Email Me
             </a>
