@@ -206,7 +206,7 @@ const Portfolio = () => {
                 href={portfolioResume}
                 target="_blank"
                 rel="noopener noreferrer"
-                  className="px-8 py-3 bg-[#1babab]/50 text-[#011c14] text-sm font-medium rounded-md  border-2  border-[#1babab] hover:bg-[#1babab]/80 transition-all duration-200 whitespace-nowrap"
+                  className="px-8 py-3 bg-[#1babab]/50 text-[#011c14] text-sm font-medium rounded-md border-2 border-[#1babab] hover:bg-[#1babab]/80 transition-all duration-200 whitespace-nowrap"
               >
                 Resume
               </a>

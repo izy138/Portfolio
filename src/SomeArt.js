@@ -23,6 +23,7 @@ const artworkData = [
     title: "Isa I",
     category: "Oil on Canvas",
     year: "2015",
+    size: "24x36\"",
     imagePosition: "object-center"
   },
   {
@@ -31,6 +32,7 @@ const artworkData = [
     title: "Isa II",
     category: "Oil on Canvas",
     year: "2015",
+    size: "24x36\"",
     imagePosition: "object-[10%_10%]"
   },
   {
@@ -39,6 +41,7 @@ const artworkData = [
     title: "Isa III",
     category: "Oil on Canvas",
     year: "2015",
+    size: "24x36\"",
     imagePosition: "object-[10%_20%]"
   },
   {
@@ -47,6 +50,7 @@ const artworkData = [
     title: "Isa IV",
     category: "Oil on Canvas",
     year: "2015",
+    size: "24x36\"",
     imagePosition: "object-center"
   },
   {
@@ -55,6 +59,7 @@ const artworkData = [
     title: "Pili",
     category: "Oil on Canvas",
     year: "2015",
+    size: "40x60\"",
     imagePosition: "object-[10%_20%]"
   },
   {
@@ -63,6 +68,7 @@ const artworkData = [
     title: "Sam",
     category: "Oil on Canvas",
     year: "2015",
+    size: "40x60\"",
     imagePosition: "object-[10%_20%]"
   },
   {
@@ -71,6 +77,7 @@ const artworkData = [
     title: "Nadezhda",
     category: "Oil on Canvas",
     year: "2015",
+    size: "24x36\"",
     imagePosition: "object-[10%_15%]"
   },
   {
@@ -79,6 +86,7 @@ const artworkData = [
     title: "Leah",
     category: "Oil on Canvas",
     year: "2015",
+    size: "24x36\"",
     imagePosition: "object-[10%_40%]"
   },
 
@@ -88,6 +96,7 @@ const artworkData = [
     title: "Gina",
     category: "Oil on Canvas",
     year: "2015",
+    size: "24x36\"",
     imagePosition: "object-[10%_30%]"
   },
   {
@@ -96,6 +105,7 @@ const artworkData = [
     title: "Galina",
     category: "Oil on Canvas",
     year: "2015",
+    size: "24x36\"",
     imagePosition: "object-center"
   },
   {
@@ -104,6 +114,7 @@ const artworkData = [
     title: "Galina II",
     category: "Oil on Canvas",
     year: "2015",
+    size: "24x36\"",
     imagePosition: "object-[10%_30%]"
   },
   {
@@ -112,6 +123,7 @@ const artworkData = [
     title: "Jorly",
     category: "Oil on Canvas",
     year: "2016",
+    size: "24x36\"",
     imagePosition: "object-[10%_60%]"
   },
   {
@@ -120,6 +132,7 @@ const artworkData = [
     title: "Isa",
     category: "Oil on Canvas",
     year: "2015",
+    size: "36x48\"",
     imagePosition: "object-center"
   },
 ];
@@ -135,15 +148,18 @@ const ArtworkCard = ({ artwork, onImageClick }) => (
       />
     </div>
     <div className="p-6">
-      <h3 className="text-xl font-semibold text-gray-900 mb-2">
+      <h3 className="text-xl font-semibold  text-gray-900 mb-2">
         {artwork.title}
       </h3>
-      <div className="flex flex-wrap gap-2">
-        <span className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">
+      <div className="flex flex-wrap gap-2 ml-[-3px]">
+        <span className="px-3 py-1 bg-[#5bb80f]/20 text-gray-700 text-sm rounded-full">
           {artwork.category}
         </span>
-        <span className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">
+        <span className="px-3 py-1 bg-[#5bb80f]/20 text-gray-700 text-sm rounded-full">
           {artwork.year}
+        </span>
+        <span className="px-3 py-1 bg-[#5bb80f]/20  text-gray-700 text-sm rounded-full">
+          {artwork.size}
         </span>
       </div>
     </div>
@@ -317,7 +333,7 @@ const ImageModal = ({ artwork, isOpen, onClose, onPrevious, onNext, hasPrevious,
         </div>
 
         {/* Image info */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 rounded-lg p-4 text-white">
+        <div className="absolute bottom-[-12px] left-1/2 -translate-x-1/2 bg-black/50 rounded-lg p-4 text-white">
           <h3 className="text-xl font-bold mb-1">
             {artwork.title}
           </h3>
@@ -327,6 +343,9 @@ const ImageModal = ({ artwork, isOpen, onClose, onPrevious, onNext, hasPrevious,
             </span>
             <span className="px-2 py-1 bg-white/20 rounded">
               {artwork.year}
+            </span>
+            <span className="px-2 py-1 bg-white/20 rounded">
+              {artwork.size}
             </span>
           </div>
         </div>
