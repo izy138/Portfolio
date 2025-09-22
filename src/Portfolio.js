@@ -5,7 +5,7 @@ import projects from './projects';
 import ParticleBackground from './ParticleBackground';
 import painting1 from './assets/art/painting1.jpg';
 import painting2 from './assets/art/painting2.jpg';
-import portfolioResume from './assets/RESUME25.pdf';
+import portfolioResume from './assets/A RESUME25.pdf';
 
 const categories = ['all', 'React', 'JavaScript', 'Java', 'AI', 'Graphics', 'Interactive', 'Golang'];
 
