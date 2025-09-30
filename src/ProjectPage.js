@@ -19,7 +19,7 @@ export default function ProjectPage() {
       {/* Project Details Section */}
       <div className="flex flex-col md:flex-row bg-white text-#011c14 rounded-lg shadow-lg overflow-hidden mb-8">
         <a href={project.demo} target="_blank" rel="noopener noreferrer" className="w-full md:w-1/2 cursor-pointer hover:opacity-90 transition-opacity">
-          <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+          <img src={project.projectPageImage || project.image} alt={project.title} className="w-full h-full object-cover" />
         </a>
         <div className="p-8 flex-1 flex flex-col">
           <h1 className="text-3xl font-bold mb-4">{project.title}</h1>
