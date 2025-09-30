@@ -23,7 +23,7 @@ export default function ProjectPage() {
         </a>
         <div className="p-8 flex-1 flex flex-col">
           <h1 className="text-3xl font-bold mb-4">{project.title}</h1>
-          <p className="text-#011c14 mb-6">{project.longDescription}</p>
+          <div className="text-#011c14 mb-6 whitespace-pre-line">{project.longDescription}</div>
           <div className="mt-auto flex gap-4">
             <a href={project.demo} target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-[#011c14] text-white rounded hover:bg-[#011c14]/80">Live Demo</a>
             <a href={project.github} target="_blank" rel="noopener noreferrer" className="px-4 py-2 border border-[#011c14] text-#011c14 rounded hover:bg-[#011c14]/20 hover:text-[#011c14]">View Code</a>
