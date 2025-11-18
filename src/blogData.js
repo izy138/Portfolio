@@ -87,28 +87,28 @@ const blogData = {
   "internship-fullstack": [
     {
       id: 1,
-      date: "2024-01-05",
+      date: "2024-05-26",
       title: "First Day at Red Peak Corp",
       content: "Excited to start my internship at Red Peak Corp working on the Sponsor Stories project! The team is great and I'm looking forward to contributing to this AI-powered book generation platform.",
       tags: ["Internship", "First Day", "Team"]
     },
     {
       id: 2,
-      date: "2024-01-12",
+      date: "2024-06-28",
       title: "Frontend Development Begins",
       content: "Started working on the React frontend for Sponsor Stories. The design system is well-established and I'm learning a lot about TypeScript and TailwindCSS best practices.",
       tags: ["React", "TypeScript", "Frontend"]
     },
     {
       id: 3,
-      date: "2024-01-20",
+      date: "2024-007-02",
       title: "AI Integration with Gemini",
       content: "Integrated Google's Gemini API for AI-powered content generation. The API is powerful and we're using it to create personalized book content based on sponsor information.",
       tags: ["AI", "Gemini", "API Integration"]
     },
     {
       id: 4,
-      date: "2024-02-01",
+      date: "2024-07-15",
       title: "Book Cover Generation",
       content: "Enhanced the book cover generation process using Python and Pillow. The AI can now generate custom covers that match the book's theme and content. The results are impressive!",
       tags: ["Python", "Pillow", "AI", "Design"]

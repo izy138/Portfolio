@@ -7,7 +7,7 @@ import painting1 from './assets/art/painting1.jpg';
 import painting2 from './assets/art/painting2.jpg';
 import portfolioResume from './assets/AB RESUME.pdf';
 
-const categories = ['all', 'React', 'JavaScript', 'Java', 'AI', 'Graphics', 'Interactive', 'Golang'];
+const categories = ['all', 'React', 'TypeScript', 'JavaScript', 'Java', 'Django', 'Python', 'AI', 'Machine Learning', 'Graphics', 'Interactive', 'Golang'];
 
 const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
