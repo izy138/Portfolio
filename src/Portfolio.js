@@ -5,7 +5,7 @@ import projects from './projects';
 import ParticleBackground from './ParticleBackground';
 import painting1 from './assets/art/painting1.jpg';
 import painting2 from './assets/art/painting2.jpg';
-import portfolioResume from './assets/IsabellaCorrea_Resume_Oct2025.pdf';
+import portfolioResume from './assets/IsabellaCorrea_Resume_Oct25.pdf';
 
 const categories = ['all', 'React', 'TypeScript', 'JavaScript', 'Java', 'Django', 'Python', 'AI', 'Machine Learning', 'Graphics', 'Interactive', 'Golang'];
 
