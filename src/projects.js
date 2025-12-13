@@ -101,7 +101,7 @@ Built for ShellHacks 2025 in a team of 4 using Chrome Extension Manifest V3, Fas
     categories: ["Python", "React", "AI", "Typescript", "TailwindCSS"],
     tech: ["React", "TypeScript", "TailwindCSS", "Node.js", "AI", "Python", "Pillow", "Docker"],
     // github: "https://github.com/yourusername/react-dashboard",
-    demo: "https://red-peak.ai",
+    demo: "https://www.youtube.com/watch?v=yBECDuw2gaM",
     image: sponsorstories,
     imagePosition: "object-left"
   },
