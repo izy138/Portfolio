@@ -30,7 +30,7 @@ Built with React TypeScript for the frontend and Django with Python for the back
     github: "https://github.com/Joaquin54/nutrichoice",
     demo: "",
     image: recipeRecommender,
-    imagePosition: "object-left"
+    imagePosition: "object-center"
   },
   {
     slug: "fiu-panther-planner",
