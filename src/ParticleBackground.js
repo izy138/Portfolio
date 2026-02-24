@@ -435,7 +435,7 @@ const ParticleBackground = ({ onMouseStateChange }) => {
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [onMouseStateChange]);
 
   return (
     <canvas

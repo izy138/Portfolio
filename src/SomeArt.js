@@ -14,47 +14,15 @@ import gina from './assets/art/gina.jpeg';
 import galina from './assets/art/galina1.jpeg';
 import galina2 from './assets/art/galina2.jpeg';
 import jorly from './assets/art/jorly.jpeg';
+import isa1 from './assets/art/isa1.jpg';
+import isa2 from './assets/art/isa2.jpg';
+import isa3 from './assets/art/isa3.jpg';
+import isa4 from './assets/art/isa4.jpg';
 
 // Artwork data array - easy to add/edit
 const artworkData = [
   {
     id: 1,
-    image: painting1,
-    title: "Isa I",
-    category: "Oil on Canvas",
-    year: "2015",
-    size: "24x36\"",
-    imagePosition: "object-center"
-  },
-  {
-    id: 2,
-    image: painting2,
-    title: "Isa II",
-    category: "Oil on Canvas",
-    year: "2015",
-    size: "24x36\"",
-    imagePosition: "object-[10%_10%]"
-  },
-  {
-    id: 3,
-    image: painting3,
-    title: "Isa III",
-    category: "Oil on Canvas",
-    year: "2015",
-    size: "24x36\"",
-    imagePosition: "object-[10%_20%]"
-  },
-  {
-    id: 4,
-    image: painting4,
-    title: "Isa IV",
-    category: "Oil on Canvas",
-    year: "2015",
-    size: "24x36\"",
-    imagePosition: "object-center"
-  },
-  {
-    id: 5,
     image: pili,
     title: "Pili",
     category: "Oil on Canvas",
@@ -63,7 +31,7 @@ const artworkData = [
     imagePosition: "object-[10%_20%]"
   },
   {
-    id: 6,
+    id: 2,
     image: sam,
     title: "Sam",
     category: "Oil on Canvas",
@@ -72,7 +40,7 @@ const artworkData = [
     imagePosition: "object-[10%_20%]"
   },
   {
-    id: 7,
+    id: 3,
     image: nadezhda,
     title: "Nadezhda",
     category: "Oil on Canvas",
@@ -81,7 +49,7 @@ const artworkData = [
     imagePosition: "object-[10%_15%]"
   },
   {
-    id: 8,
+    id: 4,
     image: leah,
     title: "Leah",
     category: "Oil on Canvas",
@@ -91,7 +59,7 @@ const artworkData = [
   },
 
   {
-    id: 9,
+    id: 5,
     image: gina,
     title: "Gina",
     category: "Oil on Canvas",
@@ -100,7 +68,7 @@ const artworkData = [
     imagePosition: "object-[10%_30%]"
   },
   {
-    id: 10,
+    id: 6,
     image: galina,
     title: "Galina",
     category: "Oil on Canvas",
@@ -109,7 +77,7 @@ const artworkData = [
     imagePosition: "object-center"
   },
   {
-    id: 11,
+    id: 7,
     image: galina2,
     title: "Galina II",
     category: "Oil on Canvas",
@@ -118,7 +86,7 @@ const artworkData = [
     imagePosition: "object-[10%_30%]"
   },
   {
-    id: 12,
+    id: 8,
     image: jorly,
     title: "Jorly",
     category: "Oil on Canvas",
@@ -127,7 +95,7 @@ const artworkData = [
     imagePosition: "object-[10%_60%]"
   },
   {
-    id: 13,
+    id: 9,
     image: isa,
     title: "Isa",
     category: "Oil on Canvas",
@@ -135,6 +103,78 @@ const artworkData = [
     size: "36x48\"",
     imagePosition: "object-center"
   },
+  {
+    id: 10,
+    image: isa4,
+    title: "Isa II",
+    category: "Oil on Canvas",
+    year: "2015",
+    size: "36x48\"",
+    imagePosition: "object-center"
+  },
+  {
+    id: 11,
+    image: painting1,
+    title: "Isa I",
+    category: "Oil on Canvas",
+    year: "2015",
+    size: "24x36\"",
+    imagePosition: "object-center"
+  },
+  {
+    id: 12,
+    image: painting2,
+    title: "Isa II",
+    category: "Oil on Canvas",
+    year: "2015",
+    size: "24x36\"",
+    imagePosition: "object-[10%_10%]"
+  },
+  {
+    id: 13,
+    image: painting3,
+    title: "Isa III",
+    category: "Oil on Canvas",
+    year: "2015",
+    size: "24x36\"",
+    imagePosition: "object-[10%_20%]"
+  },
+  {
+    id: 14,
+    image: painting4,
+    title: "Isa IV",
+    category: "Oil on Canvas",
+    year: "2015",
+    size: "24x36\"",
+    imagePosition: "object-center"
+  },
+  {
+    id: 15,
+    image: isa1,
+    title: "Isa V",
+    category: "Oil on Canvas",
+    year: "2015",
+    size: "24x36\"",
+    imagePosition: "object-center"
+  },
+  {
+    id: 16,
+    image: isa2,
+    title: "Isa VI",
+    category: "Oil on Canvas",
+    year: "2015",
+    size: "24x36\"",
+    imagePosition: "object-[10%_10%]"
+  },
+  {
+    id: 17,
+    image: isa3,
+    title: "Isa VII",
+    category: "Oil on Canvas",
+    year: "2015",
+    size: "24x36\"",
+    imagePosition: "object-[10%_20%]"
+  }
 ];
 
 // Reusable ArtworkCard component
@@ -236,6 +276,8 @@ const ImageModal = ({ artwork, isOpen, onClose, onPrevious, onNext, hasPrevious,
         case '0':
           setZoom(1);
           setPosition({ x: 0, y: 0 });
+          break;
+        default:
           break;
       }
     };

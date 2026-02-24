@@ -7,17 +7,14 @@ import painting1 from './assets/art/painting1.jpg';
 import painting2 from './assets/art/painting2.jpg';
 import portfolioResume from './assets/IsabellaCorrea_Resume_Oct25.pdf';
 
-const categories = ['all', 'React', 'TypeScript', 'JavaScript', 'Java', 'Django', 'Python', 'AI', 'Machine Learning', 'Graphics', 'Interactive', 'Golang'];
-
 const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-  const [selectedFilter, setSelectedFilter] = useState('all');
   const [viewMode, setViewMode] = useState('grid');
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [, setIsScrolled] = useState(false);
   const [paintingOffset, setPaintingOffset] = useState(0);
   const [aboutPaintingOffset, setAboutPaintingOffset] = useState(0);
-  const [visibleProjects, setVisibleProjects] = useState(new Set());
+  const [, setVisibleProjects] = useState(new Set());
   const [isMouseOverSimulation, setIsMouseOverSimulation] = useState(false);
 
   useEffect(() => {
@@ -109,9 +106,7 @@ const Portfolio = () => {
     setIsMenuOpen(false);
   };
 
-  const filteredProjects = selectedFilter === 'all'
-    ? projects
-    : projects.filter(project => project.categories.includes(selectedFilter));
+  const filteredProjects = projects;
 
   return (
     <div className="min-h-screen">
@@ -222,44 +217,9 @@ const Portfolio = () => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-4 sm:py-4 px-4 sm:px-6 bg-[#1babab]/40 ">
+      <section id="projects" className="py-4 sm:py-4 px-4 sm:px-6 bg-[#1babab]/40 relative">
         <div className="max-w-7xl mx-auto">
 
-          {/* Filter and View Toggle */}
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 sm:mb-3 gap-4 ">
-            <div className="flex flex-wrap gap-2">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => setSelectedFilter(category)}
-                  className={`px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium transition-colors duration-200 rounded-md 
-                    border-[#1babab] ${selectedFilter === category
-                      ? 'bg-[#1babab] text-white'
-                      : 'bg-white text-[#011c14] hover:bg-[#1babab]/5 border'
-                    }`}
-                //{`px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium rounded-md border text-[#011c14] border-[#1babab]/80 ${viewMode === 'grid' ? 'bg-[#1babab]/50  ': 'bg-white'
-                >
-                  {category === 'all' ? 'Show All' : category}
-                </button>
-              ))}
-            </div>
-            <div className="flex gap-2">
-              <button
-                onClick={() => setViewMode('grid')}
-                className={`px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium rounded-md border text-[#011c14] border-[#1babab]/80 ${viewMode === 'grid' ? 'bg-[#1babab]/50  ' : 'bg-white'
-                  }`}
-              >
-                Grid
-              </button>
-              <button
-                onClick={() => setViewMode('list')}
-                className={`px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium rounded-md border text-[#011c14] border-[#1babab]/80 ${viewMode === 'list' ? 'bg-[#1babab]/50' : 'bg-white  '
-                  }`}
-              >
-                List
-              </button>
-            </div>
-          </div>
           {/* Projects Grid View */}
           {viewMode === 'grid' && (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 ">
@@ -332,7 +292,7 @@ const Portfolio = () => {
           )}
           {/* Projects List View */}
           {viewMode === 'list' && (
-            <div className="space-y-2 py-2">
+            <div className="space-y-2 py-[0px]">
               {filteredProjects.map((project, index) => (
                 <div
                   key={project.slug}
@@ -405,6 +365,22 @@ const Portfolio = () => {
             </button> */}
           </div>
         </div>
+
+        {/* View Toggle - in the gap to the right of the cards, does not affect card width */}
+        <div className="absolute top-[16px] right-4 sm:right-3 flex flex-col gap-0 z-10">
+          <button
+            onClick={() => setViewMode('grid')}
+            className={`px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium rounded-t-md border border-b-0 text-[#011c14] border-[#1babab]/80 ${viewMode === 'grid' ? 'bg-[#1babab]/50' : 'bg-white'}`}
+          >
+            Grid
+          </button>
+          <button
+            onClick={() => setViewMode('list')}
+            className={`px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium rounded-b-md border text-[#011c14] border-[#1babab]/80 ${viewMode === 'list' ? 'bg-[#1babab]/50' : 'bg-white'}`}
+          >
+            List
+          </button>
+        </div>
       </section>
 
       {/* Simulation Section */}
@@ -412,7 +388,7 @@ const Portfolio = () => {
         <ParticleBackground onMouseStateChange={setIsMouseOverSimulation} />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className={`text-center text-white/80 z-10 transition-opacity duration-300 ${isMouseOverSimulation ? 'opacity-0' : 'opacity-100'}`}>
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">Interactive Particle Simulation</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mt-[-280px]">Interactive Particle Simulation</h2>
             {/* <p className="text-lg">Scroll to explore more</p> */}
           </div>
         </div>
