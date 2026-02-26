@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Github, ExternalLink, Mail, Linkedin, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import projects from './projects';
+import projects, { PINNED_PROJECT_SLUGS } from './projects';
 import ParticleBackground from './ParticleBackground';
 import painting1 from './assets/art/painting1.jpg';
 import painting2 from './assets/art/painting2.jpg';
@@ -106,7 +106,10 @@ const Portfolio = () => {
     setIsMenuOpen(false);
   };
 
-  const filteredProjects = projects;
+  const filteredProjects = [
+    ...PINNED_PROJECT_SLUGS.map((slug) => projects.find((p) => p.slug === slug)).filter(Boolean),
+    ...projects.filter((p) => !PINNED_PROJECT_SLUGS.includes(p.slug)),
+  ];
 
   return (
     <div className="min-h-screen">
@@ -274,16 +277,18 @@ const Portfolio = () => {
                         <Github size={14} className="sm:w-4 sm:h-4" />
                         Code
                       </a>
-                      <a
-                        href={project.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="flex items-center gap-1 text-xs sm:text-sm text-gray-600 hover:text-gray-900"
-                      >
-                        <ExternalLink size={14} className="sm:w-4 sm:h-4" />
-                        Demo
-                      </a>
+                      {project.demo && (
+                        <a
+                          href={project.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="flex items-center gap-1 text-xs sm:text-sm text-gray-600 hover:text-gray-900"
+                        >
+                          <ExternalLink size={14} className="sm:w-4 sm:h-4" />
+                          Demo
+                        </a>
+                      )}
                     </div>
                   </div>
                 </Link>
@@ -343,15 +348,17 @@ const Portfolio = () => {
                         >
                           Code
                         </a>
-                        <a
-                          href={project.demo}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-1 text-sm text-gray-600 hover:text-gray-900 transition-colors"
-                        >
-                          View
-                          <ArrowUpRight size={16} />
-                        </a>
+                        {project.demo && (
+                          <a
+                            href={project.demo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-1 text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                          >
+                            View
+                            <ArrowUpRight size={16} />
+                          </a>
+                        )}
                       </div>
                     </div>
                   </div>

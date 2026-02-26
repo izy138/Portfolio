@@ -6,9 +6,47 @@ import wip from './assets/wip.png';
 import shellhacks from './assets/shellhacks.png';
 import shellhacks1 from './assets/shellhacks1.png';
 import recipeRecommender from './assets/nutrichoice.png';
+import miamiDadeActiveCalls from './assets/miami-dade-active-calls.png';
 
 
 const projects = [
+  {
+    slug: "miami-dade-active-calls",
+    title: "Miami-Dade Active Calls",
+    description: "Interactive, real-time map of active Miami-Dade Fire Rescue and FHP calls using OpenStreetMap, with filters by incident type and geocoded markers.",
+    longDescription: `Miami-Dade Fire Rescue — Live Dispatch Map
+
+An interactive, real-time map of active Miami-Dade Fire Rescue calls using OpenStreetMap.`,
+    extendedDescription: `Features:
+• Live data — Scrapes Miami-Dade Fire Rescue active calls; auto-refreshes every 60 seconds
+• Geocoded map — Addresses plotted on a dark-theme map (OpenStreetMap + Leaflet)
+• Miami-Dade bounds — Pan and zoom constrained to the county
+• Filters — By incident type: Fire, Medical, Traffic, FHP (highway patrol only), or All
+• Sidebar — All active calls by zone; click a marker or card for details
+• Caching — Geocode results cached in Turso (or in-memory) so the daily limit and cache survive server restarts
+
+Alternative: A Google Maps version (with traffic layer) lives in version-googlemaps/.
+
+Data source:
+Miami-Dade Fire Rescue CAD Active Calls:
+https://www.miamidade.gov/firecalls/calls.html
+
+Florida Highway Patrol — Live Traffic Crash and Road Condition Report (FLHSMV):
+https://trafficincidents.flhsmv.gov/SmartWebClient/CadView.aspx
+
+FLHSMV / FHP integration:
+The map merges Florida Highway Patrol incidents with MDFR calls. FHP data is scraped from the FLHSMV live report and filtered to Miami-Dade only. Incidents include built-in latitude and longitude, so no geocoding is used for FHP — zero extra API cost. FHP primarily covers highways (e.g. I-95, SR-826, Turnpike); MDFR covers local street-level fire and medical calls. Together the two sources give a fuller picture of what's active in the county.
+
+On the map, FHP incidents use purple markers, a dedicated FHP filter in the sidebar, and their own zone section. Popups show a source badge (MDFR or FHP) and, for FHP, a remarks field (e.g. "ROADBLOCK", "PARTIALLY BLOCKING RIGHT LANE"). Both sources are fetched in parallel; if one fails, the other still loads.
+
+This app uses publicly available data from Miami-Dade Fire Rescue and FLHSMV. Addresses are approximate and incident types may change. Not for emergency use.`,
+    categories: ["JavaScript", "Leaflet", "OpenStreetMap", "Real-time Data"],
+    tech: ["JavaScript", "Leaflet", "OpenStreetMap", "Node.js", "Turso", "Web Scraping"],
+    github: "https://github.com/izy138/MDC-ActiveCalls",
+    demo: "",
+    image: miamiDadeActiveCalls,
+    imagePosition: "object-left"
+  },
   {
     slug: "recipe-recommender",
     title: "Recipe Recommender",
@@ -33,6 +71,18 @@ Built with React TypeScript for the frontend and Django with Python for the back
     imagePosition: "object-center"
   },
   {
+    slug: "webgpu-particles",
+    title: "WebGPU Particle Simulation",
+    description: "High-performance particle physics simulation using WebGPU compute shaders with real-time particle dynamics.",
+    longDescription: `This is a detailed writeup about the WebGPU Particle Simulation project. You can write about your process, challenges, and what you learned here.`,
+    categories: ["Graphics", "WebGPU", "Interactive"],
+    tech: ["WebGPU", "JavaScript", "WGSL", "SQLite"],
+    github: "https://github.com/izy138/ParticleSim",
+    demo: "https://izy138.github.io/ParticleSim",
+    image: particlesim,
+    imagePosition: "object-center"
+  },
+  {
     slug: "fiu-panther-planner",
     title: "FIU Panther Planner",
     description: "Chrome extension for FIU students with AI-powered academic planning, course tracking, and campus navigation.",
@@ -54,18 +104,6 @@ Built for ShellHacks 2025 in a team of 4 using Chrome Extension Manifest V3, Fas
     image: shellhacks,
     projectPageImage: shellhacks1,
     imagePosition: "object-right"
-  },
-  {
-    slug: "webgpu-particles",
-    title: "WebGPU Particle Simulation",
-    description: "High-performance particle physics simulation using WebGPU compute shaders with real-time particle dynamics.",
-    longDescription: `This is a detailed writeup about the WebGPU Particle Simulation project. You can write about your process, challenges, and what you learned here.`,
-    categories: ["Graphics", "WebGPU", "Interactive"],
-    tech: ["WebGPU", "JavaScript", "WGSL", "SQLite"],
-    github: "https://github.com/izy138/ParticleSim",
-    demo: "https://izy138.github.io/ParticleSim",
-    image: particlesim,
-    imagePosition: "object-center"
   },
   {
     slug: "intelligent-notes",//"react-dashboard", 
@@ -131,6 +169,13 @@ Built for ShellHacks 2025 in a team of 4 using Chrome Extension Manifest V3, Fas
   },
 
   // ...add the rest of your projects here, following the same structure
+];
+
+/** Pinned projects always appear first in this order. Add new projects to the array above; they'll show after these. */
+export const PINNED_PROJECT_SLUGS = [
+  "miami-dade-active-calls",
+  "fiu-panther-planner",
+  "webgpu-particles",
 ];
 
 export default projects; 
