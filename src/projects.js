@@ -43,7 +43,7 @@ This app uses publicly available data from Miami-Dade Fire Rescue and FLHSMV. Ad
     categories: ["JavaScript", "Leaflet", "OpenStreetMap", "Real-time Data"],
     tech: ["JavaScript", "Leaflet", "OpenStreetMap", "Node.js", "Turso", "Web Scraping"],
     github: "https://github.com/izy138/MDC-ActiveCalls",
-    demo: "",
+    demo: "https://mdc-activecalls.onrender.com/",
     image: miamiDadeActiveCalls,
     imagePosition: "object-left"
   },
