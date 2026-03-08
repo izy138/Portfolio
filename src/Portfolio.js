@@ -162,7 +162,7 @@ const Portfolio = () => {
         )}
       </nav>
       {/* Hero Section */}
-      <section id="home" className="relative h-[45vh] flex items-center justify-center bg-[#1babab]/50 overflow-hidden">
+      <section id="home" className="relative h-[42.75vh] flex items-center justify-center bg-[#1babab]/50 overflow-hidden">
         {/* Animated Painting Background */}
         <div
           className="absolute left-0 right-0 opacity-20 transition-transform duration-300 ease-out"
@@ -220,12 +220,12 @@ const Portfolio = () => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-4 sm:py-4 px-4 sm:px-6 bg-[#1babab]/40 relative">
-        <div className="max-w-7xl mx-auto">
+      <section id="projects" className="py-4 sm:py-4 px-3 sm:px-4 lg:px-6 bg-[#1babab]/40 relative">
+        <div className="max-w-[1600px] mx-auto">
 
           {/* Projects Grid View */}
           {viewMode === 'grid' && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 ">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3">
               {filteredProjects.map((project, index) => (
                 <Link
                   to={`/project/${project.slug}`}
@@ -374,16 +374,16 @@ const Portfolio = () => {
         </div>
 
         {/* View Toggle - in the gap to the right of the cards, does not affect card width */}
-        <div className="absolute top-[16px] right-4 sm:right-3 flex flex-col gap-0 z-10">
+        <div className="hidden absolute top-[12px] right-2 sm:right-3 flex flex-col gap-0 z-10">
           <button
             onClick={() => setViewMode('grid')}
-            className={`px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium rounded-t-md border border-b-0 text-[#011c14] border-[#1babab]/80 ${viewMode === 'grid' ? 'bg-[#1babab]/50' : 'bg-white'}`}
+            className={`px-2 py-1 text-xs font-medium rounded-t-md border border-b-0 text-[#011c14] border-[#1babab]/80 ${viewMode === 'grid' ? 'bg-[#1babab]/50' : 'bg-white'}`}
           >
             Grid
           </button>
           <button
             onClick={() => setViewMode('list')}
-            className={`px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium rounded-b-md border text-[#011c14] border-[#1babab]/80 ${viewMode === 'list' ? 'bg-[#1babab]/50' : 'bg-white'}`}
+            className={`px-2 py-1 text-xs font-medium rounded-b-md border text-[#011c14] border-[#1babab]/80 ${viewMode === 'list' ? 'bg-[#1babab]/50' : 'bg-white'}`}
           >
             List
           </button>

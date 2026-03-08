@@ -7,9 +7,34 @@ import shellhacks from './assets/shellhacks.png';
 import shellhacks1 from './assets/shellhacks1.png';
 import recipeRecommender from './assets/nutrichoice.png';
 import miamiDadeActiveCalls from './assets/miami-dade-active-calls.png';
+import bookmarkbuddy from './assets/bookmarkbuddy.png';
 
 
 const projects = [
+  {
+    slug: "bookmarkbuddy",
+    title: "BookmarkBuddy",
+    description: "A modern Chrome extension for visual bookmark management with smart categorization, favorites, duplicate detection, and X/Twitter integration.",
+    longDescription: `BookmarkBuddy is a visual Chrome bookmarks manager with smart categorization, favorites, duplicate detection, and X/Twitter integration.
+
+Features include a card grid layout, auto-categorization by URL, right-click save, search and sort, bulk operations, and both side panel and full-page views.`,
+    extendedDescription: `Features:
+• Card Grid Layout — Visual bookmark cards with favicons, titles, domains, and category tags. Toggle between grid and list views.
+• Smart Auto-Categorization — Bookmarks automatically categorized (Streaming, Development, AI Tools, Education, Social, etc.) based on URL.
+• Favorites / Pinned — Star any bookmark to pin it. View all favorites in a dedicated tab.
+• Duplicate Detection — Identifies domains with multiple bookmarks for cleanup.
+• X/Twitter Integration — Auto-captures posts when you press X's bookmark button. Import from X bookmarks page or likes archive.
+• Right-Click Context Menu — Save any page or link via "Save to BookmarkBuddy" or save as favorite.
+• Search & Sort — Search across titles, URLs, and categories. Sort by newest, oldest, or alphabetical.
+• Bulk Operations — Select multiple bookmarks and delete at once.
+• Side Panel & Full Page — Quick access in Chrome's side panel or full-page manager for large collections.`,
+    categories: ["Chrome Extension", "JavaScript", "Bookmarks"],
+    tech: ["Chrome Extension", "JavaScript", "HTML5", "CSS3", "Chrome APIs"],
+    github: "",
+    demo: "",
+    image: bookmarkbuddy,
+    imagePosition: "object-left"
+  },
   {
     slug: "miami-dade-active-calls",
     title: "Miami-Dade Active Calls",
@@ -173,7 +198,7 @@ Built for ShellHacks 2025 in a team of 4 using Chrome Extension Manifest V3, Fas
 
 /** Pinned projects always appear first in this order. Add new projects to the array above; they'll show after these. */
 export const PINNED_PROJECT_SLUGS = [
-  "miami-dade-active-calls",
+  "bookmarkbuddy",
   "fiu-panther-planner",
   "webgpu-particles",
 ];
