@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Github, ExternalLink, Mail, Linkedin, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import projects, { PINNED_PROJECT_SLUGS } from './projects';
+import projects, { PROJECT_ORDER } from './projects';
 import ParticleBackground from './ParticleBackground';
 import painting1 from './assets/art/painting1.jpg';
 import painting2 from './assets/art/painting2.jpg';
@@ -106,10 +106,7 @@ const Portfolio = () => {
     setIsMenuOpen(false);
   };
 
-  const filteredProjects = [
-    ...PINNED_PROJECT_SLUGS.map((slug) => projects.find((p) => p.slug === slug)).filter(Boolean),
-    ...projects.filter((p) => !PINNED_PROJECT_SLUGS.includes(p.slug)),
-  ];
+  const filteredProjects = PROJECT_ORDER.map((slug) => projects.find((p) => p.slug === slug)).filter(Boolean);
 
   return (
     <div className="min-h-screen">

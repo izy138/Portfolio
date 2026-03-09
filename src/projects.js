@@ -8,9 +8,29 @@ import shellhacks1 from './assets/shellhacks1.png';
 import recipeRecommender from './assets/nutrichoice.png';
 import miamiDadeActiveCalls from './assets/miami-dade-active-calls.png';
 import bookmarkbuddy from './assets/bookmarkbuddy.png';
+import multichoice from './assets/multichoice.png';
 
 
 const projects = [
+  {
+    slug: "multichoice",
+    title: "MultiChoice",
+    description: "AI-powered study practice app for creating and practicing multiple choice questions with spaced repetition ordering based on performance history.",
+    longDescription: `MultiChoice is a single-page web app for creating and practicing multiple choice questions with AI-powered spaced repetition ordering.
+
+Create questions manually or generate them from study material using Claude AI. Practice with intelligent ordering that adapts to your performance.`,
+    extendedDescription: `Features:
+• Question Creation — Manual input or AI generation from study material using Claude. Add/remove answer choices, optional explanations.
+• Practice Modes — AI-ordered practice (spaced repetition based on performance) or original order.
+• Performance Tracking — Tracks times answered, accuracy per question, score during sessions. Visual correct/incorrect feedback.
+• Data Persistence — All data stored locally in browser; no backend required.`,
+    categories: ["JavaScript", "AI", "Education"],
+    tech: ["JavaScript", "Claude AI", "Local Storage", "Spaced Repetition"],
+    github: "",
+    demo: "",
+    image: multichoice,
+    imagePosition: "object-center"
+  },
   {
     slug: "bookmarkbuddy",
     title: "BookmarkBuddy",
@@ -196,11 +216,19 @@ Built for ShellHacks 2025 in a team of 4 using Chrome Extension Manifest V3, Fas
   // ...add the rest of your projects here, following the same structure
 ];
 
-/** Pinned projects always appear first in this order. Add new projects to the array above; they'll show after these. */
-export const PINNED_PROJECT_SLUGS = [
+/** Display order for all projects. Reorder this array to change how projects appear on the portfolio. */
+export const PROJECT_ORDER = [
   "bookmarkbuddy",
   "fiu-panther-planner",
   "webgpu-particles",
+  "miami-dade-active-calls",
+  "recipe-recommender",
+  "multichoice",
+  "intelligent-notes",
+  "kanban-board",
+  "internship-fullstack",
+  "chat-app",
+  "go-data",
 ];
 
 export default projects; 
