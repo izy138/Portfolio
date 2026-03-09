@@ -9,6 +9,10 @@ import recipeRecommender from './assets/nutrichoice.png';
 import miamiDadeActiveCalls from './assets/miami-dade-active-calls.png';
 import bookmarkbuddy from './assets/bookmarkbuddy.png';
 import multichoice from './assets/multichoice.png';
+import kasiopya1 from './assets/kasiopya1.png';
+import kasiopya2 from './assets/kasiopya2.png';
+import kasiopya3 from './assets/kasiopya3.png';
+import kasiopya4 from './assets/kasiopya4.png';
 
 
 const projects = [
@@ -119,9 +123,42 @@ Built with React TypeScript for the frontend and Django with Python for the back
     slug: "webgpu-particles",
     title: "WebGPU Particle Simulation",
     description: "High-performance particle physics simulation using WebGPU compute shaders with real-time particle dynamics.",
-    longDescription: `This is a detailed writeup about the WebGPU Particle Simulation project. You can write about your process, challenges, and what you learned here.`,
+    longDescription: `A real-time particle life simulation running entirely on the GPU via the WebGPU API. Thousands of particles interact through attraction and repulsion forces, producing complex emergent behaviors — from clustering and swarming to oscillation and chaotic flow.
+
+Inspired by Particle Life by Sandbox Science.`,
+    extendedDescription: `How it works
+Each frame, the simulation runs two GPU passes:
+
+• Compute pass — for every particle, calculates net force from nearby particles using the attraction matrix, then integrates velocity and position. Spatial binning divides the canvas into a grid so each particle only checks neighbors in adjacent bins rather than all N² pairs.
+
+• Render pass — draws each particle as a colored point at its current position using a render pipeline.
+
+Force between two particles of types A and B follows a piecewise model: strong repulsion inside the collision radius, attraction or repulsion based on the force matrix between collision and interaction radius, and no force beyond the interaction radius. All simulation state lives in GPU buffers with double buffering (ping-pong) so the previous frame's positions are read while the next frame's are written.
+
+Features
+• Up to 20,000 particles rendered in real time
+• 2–8 particle types, each with unique colors and force relationships
+• Configurable attraction/repulsion forces between every type pair
+• Adjustable friction, force scale, and simulation speed
+• Mouse interaction — attract or repel particles with adjustable strength and radius
+• Save / load configurations as .json files; drag and drop supported
+• Keyboard shortcuts: Space (randomize), P (pause), R (reset), N (new config), Ctrl+F (fullscreen), TAB (toggle panel)
+
+Browser requirements
+WebGPU is required. Available in recent Chrome and Safari.
+
+• Chrome: Settings → System → enable Hardware acceleration
+• Safari: Settings → Advanced → Show features for web developers → Feature Flags → enable WebGPU
+• Laptop with multiple GPUs: Settings → System → Display → Graphics → Add Chrome → set GPU Preference to dedicated GPU (e.g. NVIDIA) → restart Chrome
+
+Running locally
+No build step required — serve from any static file server:
+
+python3 -m http.server 8080
+
+Then open http://localhost:8080 in Chrome or Safari with WebGPU enabled. Opening index.html directly as a file:// URL won't work due to shader loading restrictions.`,
     categories: ["Graphics", "WebGPU", "Interactive"],
-    tech: ["WebGPU", "JavaScript", "WGSL", "SQLite"],
+    tech: ["WebGPU", "JavaScript", "WGSL"],
     github: "https://github.com/izy138/ParticleSim",
     demo: "https://izy138.github.io/ParticleSim",
     image: particlesim,
@@ -142,6 +179,39 @@ Core Features:
 • Prerequisite Checking: Validates course eligibility based on completed prerequisites
 
 Built for ShellHacks 2025 in a team of 4 using Chrome Extension Manifest V3, FastAPI, Python 3.13, MongoDB, and Google APIs for AI and navigation features.`,
+    extendedDescription: `Inspiration
+FIU Panther Planner was inspired by the common difficulties students face when trying to understand complex degree requirements, plan conflict-free schedules, track their progress, and navigate campus between classes.
+
+What it does
+FIU Panther Planner is an all-in-one Chrome extension designed to streamline academic planning. Once a student selects their major, it generates a personalized checklist of all required courses. An intelligent AI agent analyzes their progress to recommend which courses to take next and automatically detects schedule conflicts. The extension also integrates Google Maps to provide the most efficient walking routes between classes, helping students manage their time effectively.
+
+How we built it
+The frontend is a Chrome Extension (Manifest V3) using HTML5, CSS3, and JavaScript. The backend is powered by FastAPI and Python with a MongoDB database. For AI capabilities, the system integrates Claude 3.5 Sonnet and Google Gemini 2.0 Flash, along with the Google Maps and Anthropic Claude APIs.
+
+Challenges
+The primary challenges included integrating the web application into the Chrome extension architecture, ensuring high-quality data for the course checklist, and developing effective tools for the AI agent. Connecting the FastAPI backend to MongoDB and making all components work together seamlessly required extensive troubleshooting.
+
+Accomplishments
+We successfully created a comprehensive solution with genuinely personalized course recommendations and a clear visual interface for tracking degree progress. The result is a fast, responsive experience that integrates smoothly with FIU's portal and matches its branding.
+
+What we learned
+This project provided invaluable experience in full-stack development, particularly with FastAPI and MongoDB integration. We gained hands-on skills in Chrome Extension development, API design, and building AI agentic systems. We also learned the importance of iterative development, starting with an MVP, and the critical value of user testing.
+
+Running the project
+• Backend: python -m uvicorn app.main:app --reload
+• Extension: Go to chrome://extensions → enable Developer mode → click 'Load Unpacked' and select the frontend folder → open the extension or navigate to my.fiu.edu
+
+Google Maps APIs: Maps Static API, Places API, Geocoding API, Routes API
+
+Python dependencies: fastapi, motor, uvicorn, pydantic, python-dotenv, python-multipart, anthropic, requests, google-adk
+
+What's next
+• Mobile App: iOS/Android companion app for on-the-go planning
+• Expanded Majors: Support for all majors offered at FIU
+• Advanced Scheduling: Automatic conflict resolution and optimal schedule generation
+• Smart Notifications: Alerts for registration deadlines and course availability
+• Enhanced AI: Train on more FIU-specific data for better recommendations
+• Social Features: Share schedules and form study groups`,
     categories: ["Chrome Extension", "AI", "Python", "JavaScript", "Hackathon"],
     tech: ["Chrome Extension", "JavaScript", "HTML5", "CSS3", "FastAPI", "Python 3.13", "MongoDB", "Pydantic", "Google Maps API", "Google ADK"],
     github: "https://github.com/izy138/ShellHacks2025",
@@ -154,7 +224,24 @@ Built for ShellHacks 2025 in a team of 4 using Chrome Extension Manifest V3, Fas
     slug: "intelligent-notes",//"react-dashboard", 
     title: "Intelligent Notes",
     description: "Note taking app using AI to summarize and organize notes.",
-    longDescription: `This project was built for the Software Engineering I course at FIU. It uses JavaFX to create a GUI for the notes app. It uses the ClaudeAI API to generate summaries of the notes. It includes note organization, note tagging, and note searching.`,
+    longDescription: `Intelligent Notes is a note-taking app built for Software Engineering I at FIU. It features real-time editing, search, tag-based organization, and Claude AI integration to generate summaries of individual notes and entire folders.
+
+Led a team of four — managed project milestones, delegated tasks, and ensured all deadlines were met throughout the semester.`,
+    extendedDescription: `Features
+• AI Summaries — Generate concise summaries of individual notes or entire folders using the Claude API. Supports bringing your own API key.
+• AI Tags — Automatically suggest relevant tags for notes based on their content.
+• Note Organization — Organize notes into folders with a clean, intuitive layout.
+• Real-time Editing — Notes save automatically as you type.
+• Search — Quickly find notes by title, content, or tag.
+• Tag System — Label and filter notes with a custom tag-based system.
+
+Development timeline
+• April 6, 2023 — Built the main UI using JavaFX. Focused on a clean interface with auto-save and real-time search from the start.
+• April 14, 2023 — Successfully integrated Claude AI summarization. The model generates concise summaries of longer notes, making review and organization much faster.
+• March 27, 2024 — Revisited AI integration planning, exploring local model options for offline and privacy-focused use cases.
+
+Role
+Led a team of four as project manager and lead developer — designed the application architecture, managed milestones, delegated features across the team, and ensured all deadlines were met.`,
     categories: ["AI","Java", "JavaFX", "Maven"],
     tech: ["Java", "Maven", "JavaFX", "AI"],
     github: "https://github.com/izy138/Intelligent-Notes/",
@@ -179,8 +266,20 @@ Built for ShellHacks 2025 in a team of 4 using Chrome Extension Manifest V3, Fas
     slug: "internship-fullstack",//"react-dashboard", 
     title: "Internship: Frontend Dev",
     description: "Interning at Red Peak Corp's Sponsor Stories, using AI to generate personalized book content.",
-    longDescription: `Worked on the frontend of the Sponsor Stories website, using React, TypeScript, and TailwindCSS to create a responsive and user-friendly interface and Gemini's api.
-    Maintained python backend and scripts for AI generation. Enhanced the book cover generation process and its design using pillow and Gemini's api.`,
+    longDescription: `Frontend development internship at Red Peak Corp, contributing to Sponsor Stories — an AI-powered platform that generates personalized books for sponsors.
+
+Built responsive React components, engineered page animations, and maintained the Python backend and AI generation pipeline using Google Gemini and Pillow.`,
+    extendedDescription: `What I worked on
+• React Frontend — Collaborated with the designer to build responsive components using React, TypeScript, and TailwindCSS. Engineered all page animations and responsive UI elements to improve engagement and user experience.
+• AI Content Generation — Integrated Google Gemini's API to power personalized book content generation based on sponsor information.
+• Book Cover Generation — Enhanced the book cover generation process using Python and Pillow, producing custom covers that match each book's theme and content.
+• Backend Maintenance — Optimized core Python scripts, resolving prompt-content mismatch issues and increasing the overall relevance of AI-generated books.
+
+Development timeline
+• May 25, 2024 — First day at Red Peak Corp. Onboarded to the Sponsor Stories project and got familiar with the team and codebase.
+• June 27, 2024 — Began frontend development, learning the established design system and TypeScript/TailwindCSS best practices.
+• July 2, 2024 — Integrated the Gemini API for AI-powered content generation, enabling personalized book content from sponsor data.
+• July 14, 2024 — Enhanced the book cover generation pipeline with Python and Pillow. The AI now generates custom covers matched to each book's theme.`,
     categories: ["Python", "React", "AI", "Typescript", "TailwindCSS"],
     tech: ["React", "TypeScript", "TailwindCSS", "Node.js", "AI", "Python", "Pillow", "Docker"],
     // github: "https://github.com/yourusername/react-dashboard",
@@ -213,6 +312,40 @@ Built for ShellHacks 2025 in a team of 4 using Chrome Extension Manifest V3, Fas
     imagePosition: "object-center"
   },
 
+  {
+    slug: "kasiopya",
+    title: "Freelance: Kasiopya.com",
+    description: "Custom Shopify storefront for Kasiopya — a silk fashion brand — featuring a horizontal image carousel, variant-based image filtering, and polished UI.",
+    longDescription: `Freelance Shopify development for Kasiopya, a silk fashion brand. Built heavily customized product page features on top of Shopify's Dawn theme, far beyond what the platform offers out of the box.
+
+Key work: custom horizontal image carousel, variant-based image filtering, swatches, popup, and a three-column video layout for the tutorials page.`,
+    extendedDescription: `Image Carousel
+The centerpiece of the work is a custom horizontal image carousel for the product page on desktop. Rather than Shopify's default stacked gallery, the carousel shows images in a horizontal strip with a "peek" effect — partially revealing adjacent images to hint at more content. It includes smooth transitions, custom navigation arrows, opacity changes to highlight the active slide, and responsive sizing across large desktop, medium desktop, and tablet breakpoints.
+
+Variant-based image filtering
+When a customer selects a color variant, the carousel automatically filters to show only the images for that color. This works by fetching the product's JSON data, mapping each color variant to its image range, tagging slides with data attributes, and hiding or showing slides accordingly. The counter updates to reflect only the visible images, not the total count.
+
+Mobile vs. desktop
+On mobile, Shopify's native touch-swipe slider is preserved entirely — the variant filtering logic is layered on top without breaking the platform's built-in behavior. A page reload triggers whenever the viewport crosses the 750px breakpoint in either direction, ensuring the correct mode (desktop carousel vs. mobile slider) is always initialized cleanly.
+
+Other improvements
+• Color name display that fades in and out when a swatch is selected
+• Custom swatch styling with hover and disabled states
+• Sticky product media column on desktop
+• Spacing and layout adjustments to the header and product grid
+• Three-column video layout for the tutorials page
+• Custom popup template using Shopify's Liquid templating language
+
+Development approach
+The approach was iterative — one feature at a time, tested across screen sizes, with heavy use of browser dev tools to debug CSS specificity issues, JavaScript timing conflicts, and DOM state problems. Carousel and variant filtering were combined into a single unified script to eliminate race conditions between separate scripts competing for the same DOM elements.`,
+    categories: ["Shopify", "JavaScript", "Liquid", "Freelance"],
+    tech: ["Shopify", "Liquid", "JavaScript", "CSS3", "Dawn Theme"],
+    demo: "https://kasiopya.com",
+    image: kasiopya1,
+    images: [kasiopya1, kasiopya2, kasiopya3, kasiopya4],
+    imagePosition: "object-top"
+  },
+
   // ...add the rest of your projects here, following the same structure
 ];
 
@@ -226,6 +359,7 @@ export const PROJECT_ORDER = [
   "multichoice",
   "intelligent-notes",
   "kanban-board",
+  "kasiopya",
   "internship-fullstack",
   "chat-app",
   "go-data",

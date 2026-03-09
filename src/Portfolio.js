@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Github, ExternalLink, Mail, Linkedin, ArrowUpRight } from 'lucide-react';
+import { Github, ExternalLink, Mail, Linkedin, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import Navbar from './Navbar';
 import projects, { PROJECT_ORDER } from './projects';
 import ParticleBackground from './ParticleBackground';
 import painting1 from './assets/art/painting1.jpg';
@@ -8,7 +9,6 @@ import painting2 from './assets/art/painting2.jpg';
 import portfolioResume from './assets/IsabellaCorrea_Resume_Oct25.pdf';
 
 const Portfolio = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [viewMode, setViewMode] = useState('grid');
   const [, setIsScrolled] = useState(false);
@@ -103,61 +103,13 @@ const Portfolio = () => {
         behavior: 'smooth'
       });
     }
-    setIsMenuOpen(false);
   };
 
   const filteredProjects = PROJECT_ORDER.map((slug) => projects.find((p) => p.slug === slug)).filter(Boolean);
 
   return (
     <div className="min-h-screen">
-      {/* Sticky Navigation */}
-      <nav className={`fixed top-0 left-0 bg-white/40 backdrop-blur-sm border-b border-gray-200 z-50 shadow-sm transition-all duration-500 ease-in-out w-full`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="text-lg sm:text-xl font-semibold text-gray-900">
-              Isabella Correa
-            </div>
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex space-x-6 lg:space-x-8">
-              {['home', 'projects', 'about', 'contact'].map((item) => (
-                <button
-                  key={item}
-                  onClick={() => scrollToSection(item)}
-                  className={`capitalize transition-colors duration-200 text-sm font-medium ${activeSection === item
-                    ? 'text-gray-900 border-b-2 border-gray-900 pb-1'
-                    : 'text-gray-800 hover:text-gray-900'
-                    }`}
-                >
-                  {item}
-                </button>
-              ))}
-            </div>
-            {/* Mobile menu button */}
-            <button
-              className="md:hidden text-gray-900"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </div>
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-200">
-            <div className="px-4 sm:px-6 py-4 space-y-2">
-              {['home', 'projects', 'about', 'contact'].map((item) => (
-                <button
-                  key={item}
-                  onClick={() => scrollToSection(item)}
-                  className="block w-full text-left py-2 text-gray-600 hover:text-gray-900 capitalize transition-colors duration-200"
-                >
-                  {item}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
-      </nav>
+      <Navbar activeSection={activeSection} onScrollToSection={scrollToSection} />
       {/* Hero Section */}
       <section id="home" className="relative h-[42.75vh] flex items-center justify-center bg-[#1babab]/50 overflow-hidden">
         {/* Animated Painting Background */}
