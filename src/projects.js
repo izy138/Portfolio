@@ -30,8 +30,8 @@ Create questions manually or generate them from study material using Claude AI. 
 • Data Persistence — All data stored locally in browser; no backend required.`,
     categories: ["JavaScript", "AI", "Education"],
     tech: ["JavaScript", "Claude AI", "Local Storage", "Spaced Repetition"],
-    github: "",
-    demo: "",
+    github: "https://github.com/izy138/MultiChoice",
+    demo: "https://izy138.github.io/MultiChoice/",
     image: multichoice,
     imagePosition: "object-center"
   },
@@ -54,7 +54,7 @@ Features include a card grid layout, auto-categorization by URL, right-click sav
 • Side Panel & Full Page — Quick access in Chrome's side panel or full-page manager for large collections.`,
     categories: ["Chrome Extension", "JavaScript", "Bookmarks"],
     tech: ["Chrome Extension", "JavaScript", "HTML5", "CSS3", "Chrome APIs"],
-    github: "",
+    github: "https://github.com/izy138/BookmarkBuddy",
     demo: "",
     image: bookmarkbuddy,
     imagePosition: "object-left"
@@ -314,7 +314,7 @@ Development timeline
 
   {
     slug: "kasiopya",
-    title: "Freelance: Kasiopya.com",
+    title: "Kasiopya.com",
     description: "Custom Shopify storefront for Kasiopya — a silk fashion brand — featuring a horizontal image carousel, variant-based image filtering, and polished UI.",
     longDescription: `Freelance Shopify development for Kasiopya, a silk fashion brand. Built heavily customized product page features on top of Shopify's Dawn theme, far beyond what the platform offers out of the box.
 
@@ -340,6 +340,7 @@ Development approach
 The approach was iterative — one feature at a time, tested across screen sizes, with heavy use of browser dev tools to debug CSS specificity issues, JavaScript timing conflicts, and DOM state problems. Carousel and variant filtering were combined into a single unified script to eliminate race conditions between separate scripts competing for the same DOM elements.`,
     categories: ["Shopify", "JavaScript", "Liquid", "Freelance"],
     tech: ["Shopify", "Liquid", "JavaScript", "CSS3", "Dawn Theme"],
+    github: "https://github.com/izy138/Kasiopya.com",
     demo: "https://kasiopya.com",
     image: kasiopya1,
     images: [kasiopya1, kasiopya2, kasiopya3, kasiopya4],
