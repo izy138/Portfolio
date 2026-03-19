@@ -6,7 +6,7 @@ import projects, { PROJECT_ORDER } from './projects';
 import ParticleBackground from './ParticleBackground';
 import painting1 from './assets/art/painting1.jpg';
 import painting2 from './assets/art/painting2.jpg';
-import portfolioResume from './assets/IsabellaCorrea_Resume_Oct25.pdf';
+import portfolioResume from './assets/IsabellaCorrea_Resume_March26.pdf';
 
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState('home');
