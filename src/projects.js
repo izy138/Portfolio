@@ -4,7 +4,6 @@ import intelligentnotes from './assets/intelligentnotes.png';
 import kanban from './assets/kanban.png';
 import wip from './assets/wip.png';
 import shellhacks from './assets/shellhacks.png';
-import shellhacks1 from './assets/shellhacks1.png';
 import recipeRecommender from './assets/nutrichoice.png';
 import miamiDadeActiveCalls from './assets/miami-dade-active-calls.png';
 import bookmarkbuddy from './assets/bookmarkbuddy.png';
@@ -27,7 +26,7 @@ const projects = [
   {
     slug: "nih-search-dashboard",
     title: "NIH Search and Analytics Dashboard",
-    description: "A full-stack search and analytics platform for exploring NIH-funded research grants (2020–2025). Users can keyword search, run semantic and hybrid vector search, filter by PI/institute/state/activity/fiscal year, and explore funding trends through an interactive dashboard with maps and charts.",
+    description: "Full-stack search for NIH-funded research grants (2020-25). Users can use keyword or semantic search, filter, and explore funding trends through an interactive dashboard with maps and charts.",
     longDescription: `The KBR Internship NIH Project Search is a full-stack application built to help analysts and researchers explore NIH grant portfolios. It ingests multi-year grant data from CSV files, indexes records into OpenSearch with optional semantic embeddings, and serves a React frontend for search, discovery, and analytics.`,
     extendedDescription: `Search & discovery
 • Keyword search (BM25) across title, abstract, terms, PI names, organization, and institute—with filters for PI, institute/center, organization, state, activity code, fiscal year range, and project terms.
@@ -273,7 +272,6 @@ What's next
     github: "https://github.com/izy138/ShellHacks2025",
     demo: "https://devpost.com/software/fiu-panther-planner",
     image: shellhacks,
-    projectPageImage: shellhacks1,
     imagePosition: "object-right"
   },
   {
@@ -408,11 +406,11 @@ The approach was iterative — one feature at a time, tested across screen sizes
 
 /** Display order for all projects. Reorder this array to change how projects appear on the portfolio. */
 export const PROJECT_ORDER = [
-  "bookmarkbuddy",
   "nih-search-dashboard",
-  "fiu-panther-planner",
-  "webgpu-particles",
+  "bookmarkbuddy",
   "miami-dade-active-calls",
+  "webgpu-particles",
+  "fiu-panther-planner",
   "recipe-recommender",
   "multichoice",
   "intelligent-notes",
