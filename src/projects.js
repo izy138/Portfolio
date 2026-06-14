@@ -54,7 +54,8 @@ Infrastructure
 The app runs as three Docker Compose services (React frontend, FastAPI backend, OpenSearch) with hot-reload for local development. Data covers NIH grant CSVs (2020–2025) with 46 indexed fields per record in the project_data OpenSearch index.`,
     categories: ["React", "TypeScript", "FastAPI", "OpenSearch", "Machine Learning"],
     tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "FastAPI", "OpenSearch", "Docker", "Recharts", "sentence-transformers", "PyTorch", "Pandas", "DuckDB"],
-    demo: "",
+    github: "https://github.com/izy138/KBR-search",
+    demo: "https://nih-search.onrender.com/",
     image: nihDashboardOverview,
     images: [
       nihDashboardOverview,
