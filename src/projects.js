@@ -13,9 +13,64 @@ import kasiopya1 from './assets/kasiopya1.png';
 import kasiopya2 from './assets/kasiopya2.png';
 import kasiopya3 from './assets/kasiopya3.png';
 import kasiopya4 from './assets/kasiopya4.png';
+import nihDashboardOverview from './assets/nih-dashboard-overview.png';
+import nihDashboardCharts from './assets/nih-dashboard-charts.png';
+import nihTermThemes from './assets/nih-term-themes.png';
+import nihDashboardFiltered from './assets/nih-dashboard-filtered.png';
+import nihSearchResults from './assets/nih-search-results.png';
+import nihProjectDetail from './assets/nih-project-detail.png';
+import nihHybridSearch from './assets/nih-hybrid-search.png';
+import nihSimilarProjects from './assets/nih-similar-projects.png';
 
 
 const projects = [
+  {
+    slug: "nih-search-dashboard",
+    title: "NIH Search and Analytics Dashboard",
+    description: "A full-stack search and analytics platform for exploring NIH-funded research grants (2020–2025). Users can keyword search, run semantic and hybrid vector search, filter by PI/institute/state/activity/fiscal year, and explore funding trends through an interactive dashboard with maps and charts.",
+    longDescription: `The KBR Internship NIH Project Search is a full-stack application built to help analysts and researchers explore NIH grant portfolios. It ingests multi-year grant data from CSV files, indexes records into OpenSearch with optional semantic embeddings, and serves a React frontend for search, discovery, and analytics.`,
+    extendedDescription: `Search & discovery
+• Keyword search (BM25) across title, abstract, terms, PI names, organization, and institute—with filters for PI, institute/center, organization, state, activity code, fiscal year range, and project terms.
+• Advanced boolean search with up to 8 AND/OR/NOT clauses.
+• Semantic search using sentence-transformer embeddings to find projects by meaning, not just exact keywords.
+• Hybrid search that fuses BM25 and k-NN results with Reciprocal Rank Fusion (RRF).
+• Similar projects for any grant, with deduplication of multi-year award variants and background prefetching for faster navigation.
+
+Analytics dashboard
+• KPI cards (total funding, project count, average grant size).
+• US choropleth map by state.
+• Bar charts for institutes, top organizations, and average grant size.
+• Time-series trends for projects and funding.
+• Activity funding pie chart and hierarchical project-term theme cloud.
+
+Data pipeline
+• CSV loading and cleaning (Pandas/Jupyter).
+• Bulk indexing into OpenSearch with deterministic document IDs.
+• Optional 384-dimensional embeddings (all-MiniLM-L6-v2) for semantic search.
+• GPU-accelerated embedding export/import workflow for large datasets.
+• Term statistics and theme taxonomy precomputation for the dashboard.
+
+Infrastructure
+The app runs as three Docker Compose services (React frontend, FastAPI backend, OpenSearch) with hot-reload for local development. Data covers NIH grant CSVs (2020–2025) with 46 indexed fields per record in the project_data OpenSearch index.`,
+    categories: ["React", "TypeScript", "FastAPI", "OpenSearch", "Machine Learning"],
+    tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "FastAPI", "OpenSearch", "Docker", "Recharts", "sentence-transformers", "PyTorch", "Pandas", "DuckDB"],
+    demo: "",
+    image: nihDashboardOverview,
+    images: [
+      nihDashboardOverview,
+      nihDashboardCharts,
+      nihDashboardFiltered,
+      nihTermThemes,
+      nihSearchResults,
+      nihProjectDetail,
+      nihHybridSearch,
+      nihSimilarProjects,
+    ],
+    imagePosition: "object-center",
+    carouselAspect: "aspect-[1024/577]",
+    carouselBg: "bg-[#edf2f7]",
+    carouselFit: "object-contain",
+  },
   {
     slug: "multichoice",
     title: "MultiChoice",
@@ -353,6 +408,7 @@ The approach was iterative — one feature at a time, tested across screen sizes
 /** Display order for all projects. Reorder this array to change how projects appear on the portfolio. */
 export const PROJECT_ORDER = [
   "bookmarkbuddy",
+  "nih-search-dashboard",
   "fiu-panther-planner",
   "webgpu-particles",
   "miami-dade-active-calls",
