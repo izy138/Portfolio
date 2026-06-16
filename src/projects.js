@@ -27,7 +27,7 @@ const projects = [
     slug: "nih-search-dashboard",
     title: "NIH Search and Analytics Dashboard",
     description: "Full-stack search for NIH-funded research grants (2020-25). Users can use keyword or semantic search, filter, and explore funding trends through an interactive dashboard with maps and charts.",
-    longDescription: `The KBR Internship NIH Project Search is a full-stack application built to help analysts and researchers explore NIH grant portfolios. It ingests multi-year grant data from CSV files, indexes records into OpenSearch with optional semantic embeddings, and serves a React frontend for search, discovery, and analytics.`,
+    longDescription: `The KBR Internship NIH Project Search is a full-stack application built to help analysts and researchers explore NIH grant portfolios. It ingests multi-year grant data from CSV files, indexes records into OpenSearch with optional semantic vector embeddings, and serves a React frontend for search, discovery, and analytics.`,
     extendedDescription: `Search & discovery
 • Keyword search (BM25) across title, abstract, terms, PI names, organization, and institute—with filters for PI, institute/center, organization, state, activity code, fiscal year range, and project terms.
 • Advanced boolean search with up to 8 AND/OR/NOT clauses.
