@@ -4,28 +4,8 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import projects, { PROJECT_ORDER } from "./projects";
 import Navbar from "./Navbar";
 
-const blogSummaries = {
-  "webgpu-particles":
-    "Inspired by a Particle Life simulation shared on Twitter, the project began as a vanilla JavaScript and HTML5 Canvas prototype. Performance dropped beyond roughly 800 particles because every particle checked every other particle each frame. Moving to WebGPU with WGSL compute and render shaders improved performance dramatically, enabling up to 12,000 particles at 60fps, along with size, opacity, pause, and reset controls.",
-  "kanban-board":
-    "Built with React and TypeScript, the board uses react-beautiful-dnd for smooth drag-and-drop between columns. Supabase powers real-time data synchronization, session persistence, and user authentication so tasks stay in sync across devices.",
-  "chat-app":
-    "Development started with Firebase Authentication and Firestore for real-time messaging. The early focus was setting up the backend infrastructure and building out the user authentication flow for a full messaging platform.",
-};
-
-function getAboutContent(project, slug) {
-  let content = project.extendedDescription || "";
-
-  const blogSummary = blogSummaries[slug];
-  if (blogSummary) {
-    content = content
-      ? `${content}\n\nDevelopment notes\n${blogSummary}`
-      : blogSummary;
-  } else if (!content && project.longDescription) {
-    content = project.longDescription;
-  }
-
-  return content.trim();
+function getAboutContent(project) {
+  return project.about?.trim() || "";
 }
 
 export default function ProjectPage() {
@@ -58,7 +38,7 @@ export default function ProjectPage() {
     : PROJECT_ORDER[0];
   const prevProject = projects.find(p => p.slug === prevSlug);
   const nextProject = projects.find(p => p.slug === nextSlug);
-  const aboutContent = getAboutContent(project, slug);
+  const aboutContent = getAboutContent(project);
 
   return (
     <div className="min-h-screen">

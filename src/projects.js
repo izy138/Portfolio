@@ -20,6 +20,7 @@ import nihSearchResults from './assets/nih-search-results.png';
 import nihProjectDetail from './assets/nih-project-detail.png';
 import nihHybridSearch from './assets/nih-hybrid-search.png';
 import nihSimilarProjects from './assets/nih-similar-projects.png';
+import libraryManagementSystem from './assets/library-system.png';
 
 
 const projects = [
@@ -27,30 +28,23 @@ const projects = [
     slug: "nih-search-dashboard",
     title: "NIH Search and Analytics Dashboard",
     description: "Full-stack search for NIH-funded research grants (2020-25). Users can use keyword or semantic search, filter, and explore funding trends through an interactive dashboard with maps and charts.",
-    longDescription: `The KBR Internship NIH Project Search is a full-stack application built to help analysts and researchers explore NIH grant portfolios. It ingests multi-year grant data from CSV files, indexes records into OpenSearch with optional semantic vector embeddings, and serves a React frontend for search, discovery, and analytics.`,
-    extendedDescription: `Search & discovery
-• Keyword search (BM25) across title, abstract, terms, PI names, organization, and institute—with filters for PI, institute/center, organization, state, activity code, fiscal year range, and project terms.
-• Advanced boolean search with up to 8 AND/OR/NOT clauses.
-• Semantic search using sentence-transformer embeddings to find projects by meaning, not just exact keywords.
-• Hybrid search that fuses BM25 and k-NN results with Reciprocal Rank Fusion (RRF).
-• Similar projects for any grant, with deduplication of multi-year award variants and background prefetching for faster navigation.
+    about: `Built during my KBR internship to help analysts explore NIH grant portfolios. Ingests multi-year grant data from CSV files, indexes records into OpenSearch with optional semantic embeddings, and serves a React frontend.
+
+Search & discovery
+• Keyword search (BM25) across title, abstract, terms, PI names, organization, and institute—with filters for PI, institute/center, organization, state, activity code, fiscal year range, and project terms
+• Advanced boolean search with up to 8 AND/OR/NOT clauses
+• Semantic search using sentence-transformer embeddings to find projects by meaning, not just exact keywords
+• Hybrid search fusing BM25 and k-NN results with Reciprocal Rank Fusion (RRF)
+• Similar projects for any grant, with deduplication of multi-year award variants and background prefetching
 
 Analytics dashboard
-• KPI cards (total funding, project count, average grant size).
-• US choropleth map by state.
-• Bar charts for institutes, top organizations, and average grant size.
-• Time-series trends for projects and funding.
-• Activity funding pie chart and hierarchical project-term theme cloud.
+• KPI cards, US choropleth map, bar charts for institutes and organizations, time-series trends, activity funding pie chart, and project-term theme cloud
 
 Data pipeline
-• CSV loading and cleaning (Pandas/Jupyter).
-• Bulk indexing into OpenSearch with deterministic document IDs.
-• Optional 384-dimensional embeddings (all-MiniLM-L6-v2) for semantic search.
-• GPU-accelerated embedding export/import workflow for large datasets.
-• Term statistics and theme taxonomy precomputation for the dashboard.
+• CSV loading and cleaning (Pandas/Jupyter), bulk indexing into OpenSearch, optional 384-dim embeddings (all-MiniLM-L6-v2), GPU-accelerated embedding workflow, term statistics precomputation
 
 Infrastructure
-The app runs as three Docker Compose services (React frontend, FastAPI backend, OpenSearch) with hot-reload for local development. Data covers NIH grant CSVs (2020–2025) with 46 indexed fields per record in the project_data OpenSearch index.`,
+Three Docker Compose services (React, FastAPI, OpenSearch) with hot-reload. Data covers NIH grant CSVs (2020–2025) with 46 indexed fields per record.`,
     categories: ["React", "TypeScript", "FastAPI", "OpenSearch", "Machine Learning"],
     tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "FastAPI", "OpenSearch", "Docker", "Recharts", "sentence-transformers", "PyTorch", "Pandas", "DuckDB"],
     github: "https://github.com/izy138/KBR-search",
@@ -75,14 +69,11 @@ The app runs as three Docker Compose services (React frontend, FastAPI backend, 
     slug: "multichoice",
     title: "MultiChoice",
     description: "AI-powered study practice app for creating and practicing multiple choice questions with spaced repetition ordering based on performance history.",
-    longDescription: `MultiChoice is a single-page web app for creating and practicing multiple choice questions with AI-powered spaced repetition ordering.
+    about: `Create questions manually or generate them from study material using Claude AI. All data stays in the browser—no backend required.
 
-Create questions manually or generate them from study material using Claude AI. Practice with intelligent ordering that adapts to your performance.`,
-    extendedDescription: `Features:
-• Question Creation — Manual input or AI generation from study material using Claude. Add/remove answer choices, optional explanations.
-• Practice Modes — AI-ordered practice (spaced repetition based on performance) or original order.
-• Performance Tracking — Tracks times answered, accuracy per question, score during sessions. Visual correct/incorrect feedback.
-• Data Persistence — All data stored locally in browser; no backend required.`,
+• Question creation — manual input or AI generation, with add/remove answer choices and optional explanations
+• Practice modes — AI-ordered spaced repetition or original order
+• Performance tracking — times answered, accuracy per question, session score, and visual correct/incorrect feedback`,
     categories: ["JavaScript", "AI", "Education"],
     tech: ["JavaScript", "Claude AI", "Local Storage", "Spaced Repetition"],
     github: "https://github.com/izy138/MultiChoice",
@@ -94,19 +85,13 @@ Create questions manually or generate them from study material using Claude AI. 
     slug: "bookmarkbuddy",
     title: "BookmarkBuddy",
     description: "A modern Chrome extension for visual bookmark management with smart categorization, favorites, duplicate detection, and X/Twitter integration.",
-    longDescription: `BookmarkBuddy is a visual Chrome bookmarks manager with smart categorization, favorites, duplicate detection, and X/Twitter integration.
+    about: `Visual bookmark cards with favicons, titles, domains, and category tags. Toggle between grid and list views, or use Chrome's side panel for quick access.
 
-Features include a card grid layout, auto-categorization by URL, right-click save, search and sort, bulk operations, and both side panel and full-page views.`,
-    extendedDescription: `Features:
-• Card Grid Layout — Visual bookmark cards with favicons, titles, domains, and category tags. Toggle between grid and list views.
-• Smart Auto-Categorization — Bookmarks automatically categorized (Streaming, Development, AI Tools, Education, Social, etc.) based on URL.
-• Favorites / Pinned — Star any bookmark to pin it. View all favorites in a dedicated tab.
-• Duplicate Detection — Identifies domains with multiple bookmarks for cleanup.
-• X/Twitter Integration — Auto-captures posts when you press X's bookmark button. Import from X bookmarks page or likes archive.
-• Right-Click Context Menu — Save any page or link via "Save to BookmarkBuddy" or save as favorite.
-• Search & Sort — Search across titles, URLs, and categories. Sort by newest, oldest, or alphabetical.
-• Bulk Operations — Select multiple bookmarks and delete at once.
-• Side Panel & Full Page — Quick access in Chrome's side panel or full-page manager for large collections.`,
+• Auto-categorization by URL (Streaming, Development, AI Tools, Education, Social, etc.)
+• Favorites tab and duplicate detection for cleanup
+• X/Twitter integration — auto-captures posts on bookmark, import from bookmarks page or likes archive
+• Right-click context menu to save any page or link
+• Search across titles, URLs, and categories; sort by date or alphabetically; bulk delete`,
     categories: ["Chrome Extension", "JavaScript", "Bookmarks"],
     tech: ["Chrome Extension", "JavaScript", "HTML5", "CSS3", "Chrome APIs"],
     github: "https://github.com/izy138/BookmarkBuddy",
@@ -118,32 +103,18 @@ Features include a card grid layout, auto-categorization by URL, right-click sav
     slug: "miami-dade-active-calls",
     title: "Miami-Dade Active Calls",
     description: "Interactive, real-time map of active Miami-Dade Fire Rescue and FHP calls using OpenStreetMap, with filters by incident type and geocoded markers.",
-    longDescription: `Miami-Dade Fire Rescue — Live Dispatch Map
+    about: `Live data scraped from Miami-Dade Fire Rescue and Florida Highway Patrol, auto-refreshing every 60 seconds. Addresses geocoded and plotted on a dark-theme Leaflet map constrained to county bounds.
 
-An interactive, real-time map of active Miami-Dade Fire Rescue calls using OpenStreetMap.`,
-    extendedDescription: `Features:
-• Live data — Scrapes Miami-Dade Fire Rescue active calls; auto-refreshes every 60 seconds
-• Geocoded map — Addresses plotted on a dark-theme map (OpenStreetMap + Leaflet)
-• Miami-Dade bounds — Pan and zoom constrained to the county
-• Filters — By incident type: Fire, Medical, Traffic, FHP (highway patrol only), or All
-• Sidebar — All active calls by zone; click a marker or card for details
-• Caching — Geocode results cached in Turso (or in-memory) so the daily limit and cache survive server restarts
+• Filters by incident type: Fire, Medical, Traffic, FHP (highway patrol only), or All
+• Sidebar lists active calls by zone; click a marker or card for details
+• Geocode results cached in Turso so the daily limit survives server restarts
 
-Alternative: A Google Maps version (with traffic layer) lives in version-googlemaps/.
+FHP integration
+FHP incidents are scraped from FLHSMV and filtered to Miami-Dade. They include built-in coordinates (no geocoding cost), covering highways while MDFR handles local calls. Purple markers, dedicated FHP filter, and parallel fetching—if one source fails, the other still loads.
 
-Data source:
-Miami-Dade Fire Rescue CAD Active Calls:
-https://www.miamidade.gov/firecalls/calls.html
+A Google Maps version with a traffic layer lives in version-googlemaps/.
 
-Florida Highway Patrol — Live Traffic Crash and Road Condition Report (FLHSMV):
-https://trafficincidents.flhsmv.gov/SmartWebClient/CadView.aspx
-
-FLHSMV / FHP integration:
-The map merges Florida Highway Patrol incidents with MDFR calls. FHP data is scraped from the FLHSMV live report and filtered to Miami-Dade only. Incidents include built-in latitude and longitude, so no geocoding is used for FHP — zero extra API cost. FHP primarily covers highways (e.g. I-95, SR-826, Turnpike); MDFR covers local street-level fire and medical calls. Together the two sources give a fuller picture of what's active in the county.
-
-On the map, FHP incidents use purple markers, a dedicated FHP filter in the sidebar, and their own zone section. Popups show a source badge (MDFR or FHP) and, for FHP, a remarks field (e.g. "ROADBLOCK", "PARTIALLY BLOCKING RIGHT LANE"). Both sources are fetched in parallel; if one fails, the other still loads.
-
-This app uses publicly available data from Miami-Dade Fire Rescue and FLHSMV. Addresses are approximate and incident types may change. Not for emergency use.`,
+Disclaimer: Uses publicly available data. Addresses are approximate. Not for emergency use.`,
     categories: ["JavaScript", "Leaflet", "OpenStreetMap", "Real-time Data"],
     tech: ["JavaScript", "Leaflet", "OpenStreetMap", "Node.js", "Turso", "Web Scraping"],
     github: "https://github.com/izy138/MDC-ActiveCalls",
@@ -152,21 +123,37 @@ This app uses publicly available data from Miami-Dade Fire Rescue and FLHSMV. Ad
     imagePosition: "object-left"
   },
   {
+    slug: "library-management-system",
+    title: "Library Database Management System",
+    description: "Full-stack library management system using Flask, MySQL, and JavaScript. Includes database triggers, views, and query tables.",
+    about: `Staff manage books, members, checkouts, returns, and fines from a single-page vanilla JavaScript dashboard with search, modals, and dark mode.
+
+Database
+Normalized MySQL schema (5 tables) with foreign keys, check constraints, views, and four triggers for overdue fines, damage charges, inventory updates, and rental restrictions.
+
+Backend & reports
+Flask REST API with CRUD endpoints for all entities, plus ten analytical SQL reports: overdue titles, availability, popularity, fine balances, and more.
+
+Infrastructure
+Docker Compose (MySQL + Flask) for one-command local setup and database initialization.`,
+    categories: ["Python", "Flask", "MySQL", "SQL", "Docker"],
+    tech: ["Python", "Flask", "MySQL 8", "SQL", "HTML", "CSS", "JavaScript", "Docker"],
+    github: "",
+    demo: "",
+    image: libraryManagementSystem,
+    imagePosition: "object-top",
+    carouselAspect: "aspect-[2880/1508]",
+    carouselFit: "object-contain",
+  },
+  {
     slug: "recipe-recommender",
     title: "Recipe Recommender",
     description: "AI-powered recipe recommendation website using K-means clustering to suggest personalized recipes based on dietary preferences.",
-    longDescription: `Recipe Recommender is an intelligent recipe discovery platform that uses machine learning to provide personalized recipe recommendations.
-`,
-    extendedDescription: `
-Core Features:
-• AI-Powered Recommendations: Uses K-means clustering algorithm to recommend similar recipes based on user preferences and past interactions
-• Dietary Preferences: Personalized recommendations tailored to your dietary restrictions and preferences (vegetarian, vegan, gluten-free, keto, etc.)
-• Recipe Management: Favorite recipes and mark recipes as tried to improve recommendation accuracy
-• Meal Planning: Plan your meals ahead with an integrated meal planning feature
-• Nutrition Tracking: Track nutritional information for your meals and recipes
-• Smart Search: Search recipes by ingredients, cuisine type, or dietary requirements
+    about: `React TypeScript frontend with Django/Python backend.
 
-Built with React TypeScript for the frontend and Django with Python for the backend, providing a seamless user experience with intelligent recipe discovery.`,
+• K-means clustering recommends similar recipes based on preferences and past interactions
+• Dietary filters (vegetarian, vegan, gluten-free, keto, etc.), favorites, and "tried" tracking improve accuracy over time
+• Meal planning, nutrition tracking, and search by ingredients, cuisine, or dietary requirements`,
     categories: ["React", "TypeScript", "Django", "Python", "AI", "Machine Learning"],
     tech: ["React", "TypeScript", "Django", "Python", "K-means Clustering", "Machine Learning", "AI"],
     github: "https://github.com/Joaquin54/nutrichoice",
@@ -178,40 +165,19 @@ Built with React TypeScript for the frontend and Django with Python for the back
     slug: "webgpu-particles",
     title: "WebGPU Particle Simulation",
     description: "High-performance particle physics simulation using WebGPU compute shaders with real-time particle dynamics.",
-    longDescription: `A real-time particle life simulation running entirely on the GPU via the WebGPU API. Thousands of particles interact through attraction and repulsion forces, producing complex emergent behaviors — from clustering and swarming to oscillation and chaotic flow.
+    about: `Real-time particle life simulation running entirely on the GPU via WebGPU. Thousands of particles interact through attraction and repulsion forces, producing emergent behaviors from clustering to chaotic flow. Inspired by Particle Life by Sandbox Science.
 
-Inspired by Particle Life by Sandbox Science.`,
-    extendedDescription: `How it works
-Each frame, the simulation runs two GPU passes:
+Started as a vanilla JavaScript and Canvas prototype, but performance dropped beyond ~800 particles due to O(n²) checks each frame. Moving to WebGPU with WGSL compute and render shaders enabled up to 20,000 particles at 60fps.
 
-• Compute pass — for every particle, calculates net force from nearby particles using the attraction matrix, then integrates velocity and position. Spatial binning divides the canvas into a grid so each particle only checks neighbors in adjacent bins rather than all N² pairs.
-
-• Render pass — draws each particle as a colored point at its current position using a render pipeline.
-
-Force between two particles of types A and B follows a piecewise model: strong repulsion inside the collision radius, attraction or repulsion based on the force matrix between collision and interaction radius, and no force beyond the interaction radius. All simulation state lives in GPU buffers with double buffering (ping-pong) so the previous frame's positions are read while the next frame's are written.
+How it works
+Each frame runs a compute pass (net forces via spatial binning, velocity/position integration) and a render pass (colored points). Force follows a piecewise model between particle types with double-buffered GPU state.
 
 Features
-• Up to 20,000 particles rendered in real time
-• 2–8 particle types, each with unique colors and force relationships
-• Configurable attraction/repulsion forces between every type pair
-• Adjustable friction, force scale, and simulation speed
-• Mouse interaction — attract or repel particles with adjustable strength and radius
-• Save / load configurations as .json files; drag and drop supported
-• Keyboard shortcuts: Space (randomize), P (pause), R (reset), N (new config), Ctrl+F (fullscreen), TAB (toggle panel)
+• 2–8 particle types with configurable force relationships, friction, and simulation speed
+• Mouse attract/repel, save/load .json configs, keyboard shortcuts (Space, P, R, N, Ctrl+F, Tab)
+• WebGPU required — recent Chrome/Safari with hardware acceleration enabled
 
-Browser requirements
-WebGPU is required. Available in recent Chrome and Safari.
-
-• Chrome: Settings → System → enable Hardware acceleration
-• Safari: Settings → Advanced → Show features for web developers → Feature Flags → enable WebGPU
-• Laptop with multiple GPUs: Settings → System → Display → Graphics → Add Chrome → set GPU Preference to dedicated GPU (e.g. NVIDIA) → restart Chrome
-
-Running locally
-No build step required — serve from any static file server:
-
-python3 -m http.server 8080
-
-Then open http://localhost:8080 in Chrome or Safari with WebGPU enabled. Opening index.html directly as a file:// URL won't work due to shader loading restrictions.`,
+Run locally: python3 -m http.server 8080 — file:// URLs won't work due to shader loading restrictions.`,
     categories: ["Graphics", "WebGPU", "Interactive"],
     tech: ["WebGPU", "JavaScript", "WGSL"],
     github: "https://github.com/izy138/ParticleSim",
@@ -223,50 +189,14 @@ Then open http://localhost:8080 in Chrome or Safari with WebGPU enabled. Opening
     slug: "fiu-panther-planner",
     title: "FIU Panther Planner",
     description: "Chrome extension for FIU students with AI-powered academic planning, course tracking, and campus navigation.",
-    longDescription: `FIU Panther Planner is an AI-powered Chrome extension for FIU students.
+    about: `Built for ShellHacks 2025 in a team of four. Chrome extension (Manifest V3) with FastAPI/Python backend, MongoDB, and Claude 3.5 Sonnet / Gemini 2.0 Flash for AI features.
 
-Core Features:
-• Degree Progress Tracking: Visual checklist showing completed vs. required courses for any major
-• AI Academic Advisor (Roary): Personalized course recommendations and academic guidance
-• Smart Schedule Planning: Intelligent course scheduling with conflict detection
-• Campus Navigation: Google Maps integration for optimal routes between classes
-• Real-time Data Sync: Automatically extracts course data from FIU's PantherSoft system
-• Prerequisite Checking: Validates course eligibility based on completed prerequisites
+Once a student selects their major, the extension generates a degree checklist, recommends next courses via an AI advisor (Roary), detects schedule conflicts, validates prerequisites, and integrates Google Maps for walking routes between classes. Course data syncs from FIU's PantherSoft portal.
 
-Built for ShellHacks 2025 in a team of 4 using Chrome Extension Manifest V3, FastAPI, Python 3.13, MongoDB, and Google APIs for AI and navigation features.`,
-    extendedDescription: `Inspiration
-FIU Panther Planner was inspired by the common difficulties students face when trying to understand complex degree requirements, plan conflict-free schedules, track their progress, and navigate campus between classes.
+Stack: HTML/CSS/JS frontend, FastAPI + MongoDB backend, Google Maps APIs (Static, Places, Geocoding, Routes).
 
-What it does
-FIU Panther Planner is an all-in-one Chrome extension designed to streamline academic planning. Once a student selects their major, it generates a personalized checklist of all required courses. An intelligent AI agent analyzes their progress to recommend which courses to take next and automatically detects schedule conflicts. The extension also integrates Google Maps to provide the most efficient walking routes between classes, helping students manage their time effectively.
-
-How we built it
-The frontend is a Chrome Extension (Manifest V3) using HTML5, CSS3, and JavaScript. The backend is powered by FastAPI and Python with a MongoDB database. For AI capabilities, the system integrates Claude 3.5 Sonnet and Google Gemini 2.0 Flash, along with the Google Maps and Anthropic Claude APIs.
-
-Challenges
-The primary challenges included integrating the web application into the Chrome extension architecture, ensuring high-quality data for the course checklist, and developing effective tools for the AI agent. Connecting the FastAPI backend to MongoDB and making all components work together seamlessly required extensive troubleshooting.
-
-Accomplishments
-We successfully created a comprehensive solution with genuinely personalized course recommendations and a clear visual interface for tracking degree progress. The result is a fast, responsive experience that integrates smoothly with FIU's portal and matches its branding.
-
-What we learned
-This project provided invaluable experience in full-stack development, particularly with FastAPI and MongoDB integration. We gained hands-on skills in Chrome Extension development, API design, and building AI agentic systems. We also learned the importance of iterative development, starting with an MVP, and the critical value of user testing.
-
-Running the project
-• Backend: python -m uvicorn app.main:app --reload
-• Extension: Go to chrome://extensions → enable Developer mode → click 'Load Unpacked' and select the frontend folder → open the extension or navigate to my.fiu.edu
-
-Google Maps APIs: Maps Static API, Places API, Geocoding API, Routes API
-
-Python dependencies: fastapi, motor, uvicorn, pydantic, python-dotenv, python-multipart, anthropic, requests, google-adk
-
-What's next
-• Mobile App: iOS/Android companion app for on-the-go planning
-• Expanded Majors: Support for all majors offered at FIU
-• Advanced Scheduling: Automatic conflict resolution and optimal schedule generation
-• Smart Notifications: Alerts for registration deadlines and course availability
-• Enhanced AI: Train on more FIU-specific data for better recommendations
-• Social Features: Share schedules and form study groups`,
+Run backend: python -m uvicorn app.main:app --reload
+Load extension: chrome://extensions → Load Unpacked → frontend folder`,
     categories: ["Chrome Extension", "AI", "Python", "JavaScript", "Hackathon"],
     tech: ["Chrome Extension", "JavaScript", "HTML5", "CSS3", "FastAPI", "Python 3.13", "MongoDB", "Pydantic", "Google Maps API", "Google ADK"],
     github: "https://github.com/izy138/ShellHacks2025",
@@ -278,24 +208,11 @@ What's next
     slug: "intelligent-notes",//"react-dashboard", 
     title: "Intelligent Notes",
     description: "Note taking app using AI to summarize and organize notes.",
-    longDescription: `Intelligent Notes is a note-taking app built for Software Engineering I at FIU. It features real-time editing, search, tag-based organization, and Claude AI integration to generate summaries of individual notes and entire folders.
+    about: `Built for Software Engineering I at FIU. Led a team of four as project manager and lead developer.
 
-Led a team of four — managed project milestones, delegated tasks, and ensured all deadlines were met throughout the semester.`,
-    extendedDescription: `Features
-• AI Summaries — Generate concise summaries of individual notes or entire folders using the Claude API. Supports bringing your own API key.
-• AI Tags — Automatically suggest relevant tags for notes based on their content.
-• Note Organization — Organize notes into folders with a clean, intuitive layout.
-• Real-time Editing — Notes save automatically as you type.
-• Search — Quickly find notes by title, content, or tag.
-• Tag System — Label and filter notes with a custom tag-based system.
-
-Development timeline
-• April 6, 2023 — Built the main UI using JavaFX. Focused on a clean interface with auto-save and real-time search from the start.
-• April 14, 2023 — Successfully integrated Claude AI summarization. The model generates concise summaries of longer notes, making review and organization much faster.
-• March 27, 2024 — Revisited AI integration planning, exploring local model options for offline and privacy-focused use cases.
-
-Role
-Led a team of four as project manager and lead developer — designed the application architecture, managed milestones, delegated features across the team, and ensured all deadlines were met.`,
+• AI summaries for individual notes or entire folders via Claude API (bring your own key)
+• AI-suggested tags, folder organization, auto-save, and search by title, content, or tag
+• JavaFX UI with Maven build`,
     categories: ["AI","Java", "JavaFX", "Maven"],
     tech: ["Java", "Maven", "JavaFX", "AI"],
     github: "https://github.com/izy138/Intelligent-Notes/",
@@ -307,7 +224,7 @@ Led a team of four as project manager and lead developer — designed the applic
     slug: "kanban-board",//"react-dashboard", 
     title: "Kanban Board",
     description: "Task tracking with board and list views.",
-    longDescription: `Includes priority, due date, and tags.`,
+    about: `Task board with priority, due dates, and tags. Built with React and TypeScript using react-beautiful-dnd for drag-and-drop between columns. Supabase handles real-time sync, session persistence, and authentication.`,
     categories: ["React", "TypeScript", "TailwindCSS", "Node.js" ],
     tech: ["React", "TypeScript", "TailwindCSS", "Node.js", "Express"],
     github: "https://github.com/yourusername/react-dashboard",
@@ -320,20 +237,12 @@ Led a team of four as project manager and lead developer — designed the applic
     slug: "internship-fullstack",//"react-dashboard", 
     title: "Internship: Frontend Dev",
     description: "Interning at Red Peak Corp's Sponsor Stories, using AI to generate personalized book content.",
-    longDescription: `Frontend development internship at Red Peak Corp, contributing to Sponsor Stories — an AI-powered platform that generates personalized books for sponsors.
+    about: `Frontend internship at Red Peak Corp on Sponsor Stories — an AI platform that generates personalized books for sponsors.
 
-Built responsive React components, engineered page animations, and maintained the Python backend and AI generation pipeline using Google Gemini and Pillow.`,
-    extendedDescription: `What I worked on
-• React Frontend — Collaborated with the designer to build responsive components using React, TypeScript, and TailwindCSS. Engineered all page animations and responsive UI elements to improve engagement and user experience.
-• AI Content Generation — Integrated Google Gemini's API to power personalized book content generation based on sponsor information.
-• Book Cover Generation — Enhanced the book cover generation process using Python and Pillow, producing custom covers that match each book's theme and content.
-• Backend Maintenance — Optimized core Python scripts, resolving prompt-content mismatch issues and increasing the overall relevance of AI-generated books.
-
-Development timeline
-• May 25, 2024 — First day at Red Peak Corp. Onboarded to the Sponsor Stories project and got familiar with the team and codebase.
-• June 27, 2024 — Began frontend development, learning the established design system and TypeScript/TailwindCSS best practices.
-• July 2, 2024 — Integrated the Gemini API for AI-powered content generation, enabling personalized book content from sponsor data.
-• July 14, 2024 — Enhanced the book cover generation pipeline with Python and Pillow. The AI now generates custom covers matched to each book's theme.`,
+• React/TypeScript/Tailwind frontend with page animations and responsive components
+• Google Gemini integration for personalized book content from sponsor data
+• Python/Pillow pipeline for theme-matched book cover generation
+• Backend script optimization to fix prompt-content mismatches in AI output`,
     categories: ["Python", "React", "AI", "Typescript", "TailwindCSS"],
     tech: ["React", "TypeScript", "TailwindCSS", "Node.js", "AI", "Python", "Pillow", "Docker"],
     // github: "https://github.com/yourusername/react-dashboard",
@@ -345,7 +254,7 @@ Development timeline
     slug: "chat-app",//"react-dashboard", 
     title: "Chat App",
     description: "Currently in development",
-    longDescription: `Currently in development.`,
+    about: `Real-time messaging app in development. Firebase Authentication and Firestore for messaging infrastructure; early work focused on auth flow and backend setup.`,
     categories: ["Development", "React"],
     tech: ["React", "TypeScript", "TailwindCSS", "Node.js", "Express", "Firebase"],
     github: "https://github.com/yourusername/react-dashboard",
@@ -357,7 +266,7 @@ Development timeline
     slug: "go-data",//"react-dashboard", 
     title: "Relational Database in Go",
     description: "Currently in development",
-    longDescription: `Currently in development.`,
+    about: `Relational database project in Go. Currently in development.`,
     categories: ["Development", "Golang"],
     tech: ["Golang", "Database", "SQL"],
     github: "https://github.com/yourusername/react-dashboard",
@@ -370,28 +279,15 @@ Development timeline
     slug: "kasiopya",
     title: "Kasiopya.com",
     description: "Custom Shopify storefront for Kasiopya — a silk fashion brand — featuring a horizontal image carousel, variant-based image filtering, and polished UI.",
-    longDescription: `Shopify development for Kasiopya, a silk fashion brand. Built heavily customized product page features on top of Shopify's Dawn theme, far beyond what the platform offers out of the box.
+    about: `Custom Shopify storefront on the Dawn theme for Kasiopya, a silk fashion brand — far beyond default platform capabilities.
 
-Key work: custom horizontal image carousel, variant-based image filtering, swatches, popup, and a three-column video layout for the tutorials page.`,
-    extendedDescription: `Image Carousel
-The centerpiece of the work is a custom horizontal image carousel for the product page on desktop. Rather than Shopify's default stacked gallery, the carousel shows images in a horizontal strip with a "peek" effect — partially revealing adjacent images to hint at more content. It includes smooth transitions, custom navigation arrows, opacity changes to highlight the active slide, and responsive sizing across large desktop, medium desktop, and tablet breakpoints.
+Image carousel (desktop)
+Horizontal strip gallery with peek effect, smooth transitions, custom arrows, and responsive breakpoints—replacing Shopify's stacked gallery.
 
-Variant-based image filtering
-When a customer selects a color variant, the carousel automatically filters to show only the images for that color. This works by fetching the product's JSON data, mapping each color variant to its image range, tagging slides with data attributes, and hiding or showing slides accordingly. The counter updates to reflect only the visible images, not the total count.
+Variant-based filtering
+Selecting a color filters the carousel to that variant's images via product JSON mapping, data attributes, and updated counters. On mobile, native touch-swipe is preserved with filtering layered on top; viewport crossing 750px triggers a clean reload.
 
-Mobile vs. desktop
-On mobile, Shopify's native touch-swipe slider is preserved entirely — the variant filtering logic is layered on top without breaking the platform's built-in behavior. A page reload triggers whenever the viewport crosses the 750px breakpoint in either direction, ensuring the correct mode (desktop carousel vs. mobile slider) is always initialized cleanly.
-
-Other improvements
-• Color name display that fades in and out when a swatch is selected
-• Custom swatch styling with hover and disabled states
-• Sticky product media column on desktop
-• Spacing and layout adjustments to the header and product grid
-• Three-column video layout for the tutorials page
-• Custom popup template using Shopify's Liquid templating language
-
-Development approach
-The approach was iterative — one feature at a time, tested across screen sizes, with heavy use of browser dev tools to debug CSS specificity issues, JavaScript timing conflicts, and DOM state problems. Carousel and variant filtering were combined into a single unified script to eliminate race conditions between separate scripts competing for the same DOM elements.`,
+Also built custom swatches, sticky product media, header/grid spacing, a three-column tutorials video layout, and a Liquid popup template. Carousel and variant logic unified in one script to avoid DOM race conditions.`,
     categories: ["Shopify", "JavaScript", "Liquid"],
     tech: ["Shopify", "Liquid", "JavaScript", "CSS3", "Dawn Theme"],
     github: "https://github.com/izy138/Kasiopya.com",
@@ -411,6 +307,7 @@ export const PROJECT_ORDER = [
   "miami-dade-active-calls",
   "webgpu-particles",
   "fiu-panther-planner",
+  "library-management-system",
   "recipe-recommender",
   "multichoice",
   "intelligent-notes",
