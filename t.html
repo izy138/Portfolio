@@ -1,0 +1,201 @@
+<body>
+    <header> <!-- Site-wide header: logo, nav, search -->
+        <logo><img src="assets/logo.png" alt="This logo is in the header"></logo>
+        <nav> <!-- Primary navigation -->
+            <p>this is the navigation bar, its inside the nav and the header</p>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+
+            </ul>
+        </nav>
+        <p>this is the search bar, its inside the header</p>
+        <search><input type="text" placeholder="Search"></search>
+        <button><img src="assets/search.png" alt="Search"></button>
+        <p>exiting the header</p>
+    </header>
+
+    <main> <!-- THE primary content — only one per page -->
+        <p>this is the main content, its inside the main</p>
+        <article> <!-- Self-contained, independently distributable content -->
+            <p>this is the article, its inside the main</p>
+            <header> <!-- Article's own header (yes, you can nest headers) -->
+                <h1>Article Title (we used a header tag here)</h1>
+                <time datetime="2026-06-27">June 27, 2026</time>
+            </header>
+
+            <section> <!-- Thematic grouping within the article -->
+                <p>this is the section, its inside the article</p>
+                <h2>Section Heading</h2>
+                <p>Content here. the </p>
+            </section>
+
+            <footer> <!-- Article footer: author bio, tags, etc. -->
+                <p>this is the footer, its inside the article</p>
+                <p>Written by Isabella</p>
+            </footer>
+        </article>
+
+        <aside> <!-- Tangentially related content: sidebar, pull quotes -->
+            <p>this is the aside, its inside the main</p>
+            <h2>Related Articles</h2>
+        </aside>
+
+
+        <article>
+            <header>Styles</header>
+            <strong>this is a strong tag</strong>
+            <b>this is a bold tag</b>
+            <i>this is an italic tag</i>
+            <u>this is an underline tag</u>
+            <s>this is a strikethrough tag</s>
+            <sup>this is a superscript tag</sup>
+            <sub>this is a subscript tag</sub>
+            <small>this is a small tag</small>
+            <big>this is a big tag</big>
+            <em>this is an emphasized tag</em>
+            <mark>this is a marked tag</mark>
+            <del>this is a deleted tag</del>
+            <ins>this is an inserted tag</ins>
+            <code>this is a code tag</code>
+            <pre>this is a pre tag</pre>
+            <q>this is a quote tag</q>
+            <blockquote cite="https://..."> <!-- Extended quotation from another source -->
+                <p>The web is for everyone.</p>
+            </blockquote>
+            <cite>this is a cite tag</cite>
+            <abbr>this is an abbreviation tag</abbr>
+            <acronym>this is an acronym tag</acronym>
+            <address>this is an address tag</address>
+            <bdo>this is a bdo tag</bdo>
+            <i>alternate voice tag</i>
+            <abbr title="National Institute of Health">NIH</abbr>
+            <address>
+                <a href="mailto:isabellapc97@gmail.com">isabellapc97@gmail.com</a>
+            </address>
+
+            <code>console.log("Hello, World!");</code>
+            <pre>
+            <code>
+                function hello() {
+                    return "world";
+                }            
+            </code>
+        </pre>
+            <q>this is a quote tag</q>
+            <cite>this is a cite tag</cite>
+            <figure> <!-- Self-contained content with caption -->
+                <img src="assets/chart.png" alt="Revenue growth from 2020 to 2026">
+                <figcaption>Fig 1: Revenue growth over 6 years</figcaption>
+            </figure>
+
+        </article>
+
+        <article>
+            <header>Interactions</header>
+            <details>
+                <summary>Click to expand FAQ</summary>
+                <p>This content is hidden by default and toggles on click.</p>
+            </details>
+
+            <!-- Dialog/modal — built-in focus trapping -->
+            <dialog id="confirm">
+                <h2>Are you sure?</h2>
+                <button onclick="this.closest('dialog').close()">Cancel</button>
+                <button onclick="this.closest('dialog').close('confirm')">Confirm</button>
+            </dialog>
+            <button onclick="document.getElementById('confirm').showModal()">Delete</button>
+            <!-- Progress and meter -->
+            <progress value="70" max="100">70%</progress> <!-- Task completion -->
+            <meter value="0.7" min="0" max="1" low="0.3" high="0.7" optimum="1">70%</meter> <!-- Scalar measurement -->
+
+            <!-- Output — result of a calculation -->
+            <form oninput="result.value = parseInt(a.value) + parseInt(b.value)">
+                <input type="range" id="a" value="50"> +
+                <input type="number" id="b" value="25"> =
+                <output name="result" for="a b">75</output>
+            </form>
+        </article>
+
+        <article>
+            <header>Forms</header>
+            <form action="/signup" method="POST">
+                <!-- fieldset groups related inputs; legend labels the group -->
+                <fieldset>
+                    <legend>Personal Information</legend>
+
+                    <!-- ALWAYS associate labels with inputs via for id -->
+                    <label for="full-name">Full Name</label>
+                    <!-- Built-in validation; autocomplete helps browsers auto-fill -->
+                    <input type="text" id="full-name" name="fullName" autocomplete="name" aria-describedby="name-hint">
+                    <small id="name-hint">As it appears on your ID</small>
+
+                    <label for="email">Email</label>
+                    <!-- Built-in email validation + mobile keyboard; placeholder disappears on focus -->
+                    <input type="email" id="email" name="email" required autocomplete="email"
+                        placeholder="you@example.com">
+
+                    <label for="birthdate">Date of Birth</label>
+                    <!-- Native date picker -->
+                    <input type="date" id="birthdate" name="birthdate" autocomplete="bday">
+                </fieldset>
+
+                <fieldset>
+                    <legend>Preferences</legend>
+
+                    <!-- Radio buttons: same name = mutually exclusive -->
+                    <label><input type="radio" name="plan" value="free" checked> Free</label>
+                    <label><input type="radio" name="plan" value="pro"> Pro</label>
+
+                    <!-- Checkboxes: independent toggles -->
+                    <label><input type="checkbox" name="newsletter" value="yes"> Subscribe to newsletter</label>
+                </fieldset>
+
+                <!-- Use button, not input type="submit" — buttons can contain HTML -->
+                <button type="submit">Create Account</button>
+                <button type="reset">Clear Form</button>
+            </form>
+
+            <label for="language">Favorite Language</label>
+            <input list="languages" id="language" name="language">
+            <datalist id="languages">
+                <option value="JavaScript">
+                <option value="TypeScript">
+                <option value="Python">
+                <option value="Rust">
+                <option value="Go">
+            </datalist>
+
+            html<!-- Good: logical hierarchy -->
+<h1>h1 Frontend Foundations</h1>
+  <h2>h2 Semantic HTML</h2>
+    <h3>h3 Why It Matters</h3>
+    <h3>h3 Key Elements</h3>
+  <h2>h2 CSS Layout</h2>
+    <h3>h3 Flexbox</h3>
+    <h3>h3 Grid</h3>
+
+<!-- Bad: skipping levels, using headings for styling -->
+<h1>h1Welcome</h1>
+<h4>h4 This looks like the size I want</h4>  <!-- Don't do this -->
+<!-- Legitimate ARIA use: custom components with no HTML equivalent -->
+<div
+  role="tablist"
+  aria-label="Account settings"
+>
+  <button role="tab" aria-selected="true" aria-controls="panel-1">General</button>
+  <button role="tab" aria-selected="false" aria-controls="panel-2">Security</button>
+</div>
+<div role="tabpanel" id="panel-1">...</div>
+        </article>
+
+
+
+    </main>
+
+    <footer> <!-- Site-wide footer -->
+        <p>this is the sitewide footer, its inside the body</p>
+        <p>&copy; 2026</p>
+    </footer>
+
+</body>

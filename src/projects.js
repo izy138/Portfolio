@@ -125,7 +125,7 @@ Disclaimer: Uses publicly available data. Addresses are approximate. Not for eme
   {
     slug: "library-management-system",
     title: "Library Database Management System",
-    description: "Full-stack library management system using Flask, MySQL, and JavaScript. Includes database triggers, views, and query tables.",
+    description: "Library management system using Flask, MySQL, and JavaScript. Includes database triggers, views, and query tables.",
     about: `Staff manage books, members, checkouts, returns, and fines from a single-page vanilla JavaScript dashboard with search, modals, and dark mode.
 
 Database
