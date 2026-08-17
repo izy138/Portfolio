@@ -216,16 +216,18 @@ const Portfolio = () => {
                       ))}
                     </div>
                     <div className="flex gap-3">
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="flex items-center gap-1 text-xs sm:text-sm text-gray-600 hover:text-gray-900"
-                      >
-                        <Github size={14} className="sm:w-4 sm:h-4" />
-                        Code
-                      </a>
+                      {project.github && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="flex items-center gap-1 text-xs sm:text-sm text-gray-600 hover:text-gray-900"
+                        >
+                          <Github size={14} className="sm:w-4 sm:h-4" />
+                          Code
+                        </a>
+                      )}
                       {project.demo && (
                         <a
                           href={project.demo}
@@ -289,14 +291,16 @@ const Portfolio = () => {
                         ))}
                       </div> */}
                       <div className="flex gap-3">
-                        <a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
-                        >
-                          Code
-                        </a>
+                        {project.github && (
+                          <a
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                          >
+                            Code
+                          </a>
+                        )}
                         {project.demo && (
                           <a
                             href={project.demo}

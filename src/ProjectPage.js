@@ -116,6 +116,7 @@ export default function ProjectPage() {
         <h1 className="text-3xl font-bold text-[#011c14] text-center mb-3">{project.title}</h1>
 
         {/* Link buttons */}
+        {(project.demo || project.github) && (
         <div className="flex justify-center gap-4 mb-0">
           {project.demo && (
             <a href={project.demo} target="_blank" rel="noopener noreferrer" className="px-5 py-2 bg-[#011c14] text-white rounded-lg hover:bg-[#011c14]/80 transition-colors text-sm font-medium">
@@ -128,6 +129,7 @@ export default function ProjectPage() {
             </a>
           )}
         </div>
+        )}
 
         {/* Short Description + Tech Stack */}
         <div className="w-full max-w-4xl mx-auto">

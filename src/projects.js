@@ -21,12 +21,46 @@ import nihProjectDetail from './assets/nih-project-detail.png';
 import nihHybridSearch from './assets/nih-hybrid-search.png';
 import nihSimilarProjects from './assets/nih-similar-projects.png';
 import libraryManagementSystem from './assets/library-system.png';
+import dataLineage from './assets/data-lineage.png';
 
 
 const projects = [
+
+  {
+    slug: "fabric-lineage-sql-parsing-pipeline",
+    title: "Internship: Fabric Column-Level Data Lineage Pipeline",
+    description: "End-to-end column-level lineage engine across 3 Fabric lakehouses and 354+ tables. Parses 139 SQL definitions into 7,800+ lineage edges, with fingerprint caching that cuts incremental rebuilds from ~11 minutes to 10–20 seconds.",
+    about: `Built for a capital markets data platform on Microsoft Fabric. Traces column-level lineage from origin systems (SQL Server, APIs, flat-file feeds) through bronze, silver, and gold lakehouses — answering "where did this column's data actually come from, and what does it feed downstream?" across hundreds of tables without tracing SQL by hand.
+
+Extraction
+• Parallel schema sweep across 3 production lakehouses (bronze/silver/gold) using ThreadPoolExecutor (8 workers), cutting metadata collection from ~12 minutes to ~3 minutes while preserving deterministic output order
+• Pulls ingestion, pipeline-definition, and table-definition metadata for origin→source→bronze edges that aren't derivable from SQL alone
+• Targeted top-up re-checks tables previous runs couldn't resolve — the export list is derived automatically from the prior run's problem log, so coverage self-corrects without a hand-maintained list
+
+Lineage construction
+• sqlglot parses ~140 business-logic SQL definitions into a graph of 33,000+ nodes and 27,000+ edges, with 96%+ automated column-level resolution
+• Tracks multi-path sources (CASE, COALESCE, UNION) and surfaces unresolved dependencies for data-quality triage rather than guessing
+• Per-row fingerprint cache (SQL text + dependencies + schema hash) reuses 95%+ of unchanged rows, bringing incremental runtime from ~11 minutes to 10–20 seconds
+• Self-maintaining problem register groups gaps by root cause (missing/misnamed source tables, unexpanded SELECT *, unresolved dependencies) and feeds a derived target list back into ingestion
+• Append-only Delta run-history tables capture edge-level and table-level lineage changes for trend analysis, auditability, and regression detection
+
+Interactive lookup
+• Column-lookup widget traces any column upstream to its origin system or downstream to every column it feeds
+• Multi-path resolution with branch-condition explanations when CASE/COALESCE/UNION produce ambiguous lineage
+
+Impact
+Presented to engineering and business stakeholders. Surfaced real production defects (mismatched dependencies, tables referenced under names that no longer existed in the catalog) and translated lineage diagnostics into actionable governance insights.`,
+    categories: ["Python", "PySpark", "Microsoft Fabric", "SQL"],
+    tech: ["Microsoft Fabric", "PySpark", "Python", "sqlglot", "Delta Lake", "SQL", "Jupyter"],
+    image: dataLineage,
+    imagePosition: "object-center",
+    carouselAspect: "aspect-video",
+    carouselBg: "bg-[#faf9f5]",
+    carouselFit: "object-contain",
+  },
   {
     slug: "nih-search-dashboard",
-    title: "NIH Search and Analytics Dashboard",
+    title: "Internship: NIH Search and Analytics Dashboard",
     description: "Full-stack search for NIH-funded research grants (2020-25). Users can use keyword or semantic search, filter, and explore funding trends through an interactive dashboard with maps and charts.",
     about: `Built during my KBR internship to help analysts explore NIH grant portfolios. Ingests multi-year grant data from CSV files, indexes records into OpenSearch with optional semantic embeddings, and serves a React frontend.
 
@@ -139,7 +173,7 @@ Docker Compose (MySQL + Flask) for one-command local setup and database initiali
     categories: ["Python", "Flask", "MySQL", "SQL", "Docker"],
     tech: ["Python", "Flask", "MySQL 8", "SQL", "HTML", "CSS", "JavaScript", "Docker"],
     github: "https://github.com/izy138/STIQ-Library",
-    demo: "https://www.youtube.com/watch?v=Zqswyf4bDio&t=396s",
+    demo: "https://www.youtube.com/watch?v=Zqswyf4bDio&t",
     image: libraryManagementSystem,
     imagePosition: "object-top",
     carouselAspect: "aspect-[2880/1508]",
@@ -302,6 +336,7 @@ Also built custom swatches, sticky product media, header/grid spacing, a three-c
 
 /** Display order for all projects. Reorder this array to change how projects appear on the portfolio. */
 export const PROJECT_ORDER = [
+  "fabric-lineage-sql-parsing-pipeline",
   "nih-search-dashboard",
   "bookmarkbuddy",
   "miami-dade-active-calls",
