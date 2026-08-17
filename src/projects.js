@@ -53,7 +53,7 @@ Presented to engineering and business stakeholders. Surfaced real production def
     categories: ["Python", "PySpark", "Microsoft Fabric", "SQL"],
     tech: ["Microsoft Fabric", "PySpark", "Python", "sqlglot", "Delta Lake", "SQL", "Jupyter"],
     image: dataLineage,
-    imagePosition: "object-center",
+    imagePosition: "object-left",
     carouselAspect: "aspect-video",
     carouselBg: "bg-[#faf9f5]",
     carouselFit: "object-contain",
