@@ -419,7 +419,7 @@ const Portfolio = () => {
               Email Me
             </a>
             <a
-              href="https://linkedin.com/in/izy138"
+              href="https://linkedin.com/in/isabellacorrea138"
               className="flex items-center justify-center gap-2 px-6 sm:px-8 py-2 sm:py-3 border-2 border-[#1babab] rounded-md bg-[#1babab]/50 text-[#011c14] text-sm font-medium hover:bg-[#1babab]/80 transition-colors duration-200"
             >
               <Linkedin size={16} />

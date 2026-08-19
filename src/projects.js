@@ -27,7 +27,7 @@ import dataLineage from './assets/data-lineage.png';
 const projects = [
 
   {
-    slug: "fabric-lineage-sql-parsing-pipeline",
+    slug: "pru-fabric-lineage",
     title: "Internship: Fabric Column-Level Data Lineage Pipeline",
     description: "End-to-end column-level lineage engine across 3 Fabric lakehouses and 354+ tables. Parses 139 SQL definitions into 7,800+ lineage edges, with fingerprint caching that cuts incremental rebuilds from ~11 minutes to 10–20 seconds.",
     about: `Built for a capital markets data platform on Microsoft Fabric. Traces column-level lineage from origin systems (SQL Server, APIs, flat-file feeds) through bronze, silver, and gold lakehouses — answering "where did this column's data actually come from, and what does it feed downstream?" across hundreds of tables without tracing SQL by hand.
@@ -134,7 +134,7 @@ Three Docker Compose services (React, FastAPI, OpenSearch) with hot-reload. Data
     imagePosition: "object-left"
   },
   {
-    slug: "miami-dade-active-calls",
+    slug: "mdc-active-calls",
     title: "Miami-Dade Active Calls",
     description: "Interactive, real-time map of active Miami-Dade Fire Rescue and FHP calls using OpenStreetMap, with filters by incident type and geocoded markers.",
     about: `Live data scraped from Miami-Dade Fire Rescue and Florida Highway Patrol, auto-refreshing every 60 seconds. Addresses geocoded and plotted on a dark-theme Leaflet map constrained to county bounds.
@@ -157,7 +157,7 @@ Disclaimer: Uses publicly available data. Addresses are approximate. Not for eme
     imagePosition: "object-left"
   },
   {
-    slug: "library-management-system",
+    slug: "library-system",
     title: "Library Database Management System",
     description: "Library management system using Flask, MySQL, and JavaScript. Includes database triggers, views, and query tables.",
     about: `Staff manage books, members, checkouts, returns, and fines from a single-page vanilla JavaScript dashboard with search, modals, and dark mode.
@@ -180,8 +180,8 @@ Docker Compose (MySQL + Flask) for one-command local setup and database initiali
     carouselFit: "object-contain",
   },
   {
-    slug: "recipe-recommender",
-    title: "Recipe Recommender",
+    slug: "Nutrichoice",
+    title: "Nutrichoice Recipe Recommender",
     description: "AI-powered recipe recommendation website using K-means clustering to suggest personalized recipes based on dietary preferences.",
     about: `React TypeScript frontend with Django/Python backend.
 
@@ -196,7 +196,7 @@ Docker Compose (MySQL + Flask) for one-command local setup and database initiali
     imagePosition: "object-center"
   },
   {
-    slug: "webgpu-particles",
+    slug: "particle-sim",
     title: "WebGPU Particle Simulation",
     description: "High-performance particle physics simulation using WebGPU compute shaders with real-time particle dynamics.",
     about: `Real-time particle life simulation running entirely on the GPU via WebGPU. Thousands of particles interact through attraction and repulsion forces, producing emergent behaviors from clustering to chaotic flow. Inspired by Particle Life by Sandbox Science.
@@ -268,7 +268,7 @@ Load extension: chrome://extensions → Load Unpacked → frontend folder`,
   },
 
   {
-    slug: "internship-fullstack",//"react-dashboard", 
+    slug: "red-peak",//"react-dashboard", 
     title: "Internship: Frontend Dev",
     description: "Interning at Red Peak Corp's Sponsor Stories, using AI to generate personalized book content.",
     about: `Frontend internship at Red Peak Corp on Sponsor Stories — an AI platform that generates personalized books for sponsors.
@@ -336,19 +336,19 @@ Also built custom swatches, sticky product media, header/grid spacing, a three-c
 
 /** Display order for all projects. Reorder this array to change how projects appear on the portfolio. */
 export const PROJECT_ORDER = [
-  "fabric-lineage-sql-parsing-pipeline",
+  "pru-fabric-lineage",
   "nih-search-dashboard",
-  "bookmarkbuddy",
-  "miami-dade-active-calls",
-  "webgpu-particles",
+  "mdc-active-calls",
+  "particle-sim",
   "fiu-panther-planner",
-  "library-management-system",
-  "recipe-recommender",
+  "library-system",
+  "nutrichoice",
+  "bookmarkbuddy",
   "multichoice",
   "intelligent-notes",
   "kanban-board",
   "kasiopya",
-  "internship-fullstack",
+  "red-peak",
   "chat-app",
   "go-data",
 ];
