@@ -180,7 +180,7 @@ Docker Compose (MySQL + Flask) for one-command local setup and database initiali
     carouselFit: "object-contain",
   },
   {
-    slug: "Nutrichoice",
+    slug: "nutrichoice",
     title: "Nutrichoice Recipe Recommender",
     description: "AI-powered recipe recommendation website using K-means clustering to suggest personalized recipes based on dietary preferences.",
     about: `React TypeScript frontend with Django/Python backend.
